@@ -1,11 +1,11 @@
 ### Features
 - [X] Clean up username and login controllers.
 - [X] Make View Events page and connect with controller and service.
-- [ ] Plan database structure.
+- [x] Modify user.js schema file to include events.
 
 
 ### Schedule
-Create README with detailed steps, plan database structure. Simplify Create User page and Home pages to plain templates. Research: how to get Calendar selector on page. Create Events (view  all) page and connect with controllers and services.
+Create README with detailed steps, plan database structure. Simplify Create User page and Home pages to plain templates. Research: how to get Calendar selector on page. Create Events (view  all) page and connect with controllers and services. Create Schema file.
 10-16 Mon
 
 Connect server to Mongo database. Create GET req for all database events to display on DOM. Create basic append format. Research: how to arrange chronologically, angular.js styling.
