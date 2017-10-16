@@ -2,12 +2,17 @@ myApp.factory('UserService', function($http, $location){
   // console.log('UserService Loaded');
 
   var userObject = {};
+  var eventsObject = {
+    data: []
+  };
 
   return {
     userObject : userObject,
+    eventsObject : eventsObject,
 
+    // called in client.js when /user url hit (login)
     getuser : function(){
-      // console.log('UserService -- getuser');
+      console.log('UserService -- getuser');
       $http.get('/user').then(function(response) {
           if(response.data.username) {
               // user has a curret session on the server
@@ -24,12 +29,25 @@ myApp.factory('UserService', function($http, $location){
       });
     },
 
+    // called directly on DOM
     logout : function() {
       // console.log('UserService -- logout');
       $http.get('/user/logout').then(function(response) {
         // console.log('UserService -- logout -- logged out');
         $location.path("/home");
       });
+    },
+
+    // get all events
+    getEvents : function() {
+      console.log('getEvents service func called');
+      $http.get('/events').then(function(res){
+        // console.log('response from server: ', res);
+        eventsObject.data = res.data;
+        console.log('eventsObject.data: ', eventsObject.data);
+        
+      });
+      
     }
   };
 });

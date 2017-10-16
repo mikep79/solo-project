@@ -2,11 +2,13 @@
 - [X] Clean up username and login controllers.
 - [X] Make View Events page and connect with controller and service.
 - [x] Modify user.js schema file to include events.
+- [x] Display data to DOM with GET req.
+- [ ] Filter out events from GET events req.
 
 
 ### Schedule
 Create README with detailed steps, plan database structure. Simplify Create User page and Home pages to plain templates. Research: how to get Calendar selector on page. Create Events (view  all) page and connect with controllers and services. Create Schema file.
-10-16 Mon
+10-16 Mon   DONE!
 
 Connect server to Mongo database. Create GET req for all database events to display on DOM. Create basic append format. Research: how to arrange chronologically, angular.js styling.
 10-17 Tues

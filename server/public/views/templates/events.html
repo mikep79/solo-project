@@ -1,3 +1,9 @@
 <div>
     <p>Events Page!</p>
+    <button ng-click='EC.getEvents()'>click</button>
+    <ul>
+        <li ng-repeat='eachObj in EC.eventsObj.data'>
+            {{ eachObj }}
+        </li>
+    </ul>
 </div>
