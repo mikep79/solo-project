@@ -1,5 +1,5 @@
 myApp.controller('LoginController', function($http, $location, UserService) {
-    console.log('LoginController created');
+    // console.log('LoginController created');
     var vm = this;
     vm.user = {
       username: '',
@@ -8,9 +8,9 @@ myApp.controller('LoginController', function($http, $location, UserService) {
     vm.message = '';
 
     vm.login = function() {
-      console.log('LoginController -- login');
+      // console.log('LoginController -- login');
       if(vm.user.username === '' || vm.user.password === '') {
-        vm.message = "Enter your username and password!";
+        vm.message = "Enter username and password.";
       } else {
         console.log('LoginController -- login -- sending to server...', vm.user);
         $http.post('/', vm.user).then(function(response) {
@@ -20,19 +20,19 @@ myApp.controller('LoginController', function($http, $location, UserService) {
             $location.path('/user'); // http://localhost:5000/#/user
           } else {
             console.log('LoginController -- login -- failure: ', response);
-            vm.message = "Wrong!!";
+            vm.message = "Incorrect Username or Password.";
           }
         }).catch(function(response){
           console.log('LoginController -- registerUser -- failure: ', response);
-          vm.message = "Wrong!!";
+          vm.message = "Incorrect Username or Password.";
         });
       }
     };
 
     vm.registerUser = function() {
-      console.log('LoginController -- registerUser');
+      // console.log('LoginController -- registerUser');
       if(vm.user.username === '' || vm.user.password === '') {
-        vm.message = "Choose a username and password!";
+        vm.message = "Choose a username and password.";
       } else {
         console.log('LoginController -- registerUser -- sending to server...', vm.user);
         $http.post('/register', vm.user).then(function(response) {

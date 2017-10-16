@@ -1,5 +1,5 @@
 myApp.factory('UserService', function($http, $location){
-  console.log('UserService Loaded');
+  // console.log('UserService Loaded');
 
   var userObject = {};
 
@@ -7,7 +7,7 @@ myApp.factory('UserService', function($http, $location){
     userObject : userObject,
 
     getuser : function(){
-      console.log('UserService -- getuser');
+      // console.log('UserService -- getuser');
       $http.get('/user').then(function(response) {
           if(response.data.username) {
               // user has a curret session on the server
@@ -25,9 +25,9 @@ myApp.factory('UserService', function($http, $location){
     },
 
     logout : function() {
-      console.log('UserService -- logout');
+      // console.log('UserService -- logout');
       $http.get('/user/logout').then(function(response) {
-        console.log('UserService -- logout -- logged out');
+        // console.log('UserService -- logout -- logged out');
         $location.path("/home");
       });
     }
