@@ -1,6 +1,6 @@
 ### Features
 - [X] Clean up username and login controllers.
-- [ ] Make View Events page and connect with controller and service.
+- [X] Make View Events page and connect with controller and service.
 - [ ] Plan database structure.
 
 
