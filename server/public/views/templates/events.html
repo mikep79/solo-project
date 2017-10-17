@@ -1,37 +1,29 @@
 <div>
     <p>Events Page!</p>
     <button ng-click='EC.getEvents()'>click</button>
-
-    <article ng-repeat='eachObj in EC.eventsObj.data' ng-if='eachObj.events && eachObj.events.length !== 0'>
-        <div ng-repeat='eachEvent in eachObj.events'>
-            <ul>
-                <li>Name: {{ eachEvent.name }}</li>
-                <li>Description: {{ eachEvent.description }} </li>
-                <li>
-                    Location:
-                    <ul>
-                        <li ng-if='eachEvent.location'>
-                            {{ eachEvent.location.name }}
-                        </li>
-                        <li ng-if='eachEvent.location'>
-                            {{ eachEvent.location.street }}, {{ eachEvent.location.city }}, {{ eachEvent.location.state }} {{ eachEvent.location.zip }}
-                        </li>
-                    </ul>
-                </li>
-                <li>Start time: {{ eachEvent.time_start }} </li>
-                <li ng-if='eachEvent.time_end'>End time: {{ eachEvent.time_end }} </li>
-                <li>Count: {{ eachEvent.count }} </li>
-                <li>Accessibility: {{ eachEvent.access_tags }} </li>
-                <li>Activity: {{ eachEvent.content_tags }} </li>
-            </ul>
-        </div>
-    </article>
-
-    <hr>
-    <ul>
-        <!-- show events only if events field exists and has at least one value -->
-        <li ng-repeat='eachObj in EC.eventsObj.data' ng-if='eachObj.events && eachObj.events.length !== 0'>
-            {{ eachObj.events }}
-        </li>
-    </ul>
+    <div ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" '>
+        <!-- add if needed to remove empty event arrays     -->
+        <!-- ng-if='eachEvent && eachEvent.length !== 0' -->
+        <ul>
+            <li>Name: {{ eachEvent.name }}</li>
+            <li>Description: {{ eachEvent.description }} </li>
+            <li>
+                Location:
+                <ul>
+                    <li ng-if='eachEvent.location'>
+                        {{ eachEvent.location.name }}
+                    </li>
+                    <li ng-if='eachEvent.location'>
+                        {{ eachEvent.location.street }}, {{ eachEvent.location.city }}, {{ eachEvent.location.state }} {{ eachEvent.location.zip
+                        }}
+                    </li>
+                </ul>
+            </li>
+            <li>Start time: {{ eachEvent.time_start }} </li>
+            <li ng-if='eachEvent.time_end'>End time: {{ eachEvent.time_end }} </li>
+            <li>Count: {{ eachEvent.count }} </li>
+            <li>Accessibility: {{ eachEvent.access_tags }} </li>
+            <li>Activity: {{ eachEvent.content_tags }} </li>
+        </ul>
+    </div>
 </div>

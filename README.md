@@ -6,12 +6,13 @@
 - [x] Filter out events from GET events req. Removed [] from schema - eliminates empty fields.
 - [x] Ignore empty [] events arrays for display using ng-if.
 - [x] Create append format for DOM display of events.
-- [ ] Added location details to schema and other files.
-- [ ] Arrange chronologically.
+- [x] Added location details to schema and other files.
+- [x] Arrange chronologically.
 
 
 
 #Notes
+- check: make sure in get events function in user.service.js, that "events: []" are removed before displaying on DOM (if problematic, use ng-if to remove)
 - syntax for create new event (POST): 
     db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: "", location: { name: '', street: '', city: '', state: '', zip: ''}, time_start: "", time_end: "", count: null, access_tags: [], content_tags: []  } } });
 - [ ] My Events pg: add feature so that items marked as "attending" also show up.
