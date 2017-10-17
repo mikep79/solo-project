@@ -4,11 +4,12 @@
 - [x] Modify user.js schema file to include events.
 - [x] Display data to DOM with GET req.
 - [x] Filter out events from GET events req. Removed [] from schema - eliminates empty fields.
-- [ ] Ignore empty [] events arrays. Remove hashkeys from db query.
+- [x] Ignore empty [] events arrays for display using ng-if.
 
 
 
 #Notes
+- use ng-if to hide empty fields.
 - for POST events: 
     db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: ""  } } });
 - [ ] My events: add feature so that items marked as "attending" also show up.np
@@ -21,7 +22,7 @@ to find entire records where events exists.
 Create README with detailed steps, plan database structure. Simplify Create User page and Home pages to plain templates. Research: how to get Calendar selector on page. Create Events (view  all) page and connect with controllers and services. Create Schema file.
 10-16 Mon   DONE!
 
-Connect server to Mongo database. Create GET req for all database events to display on DOM. Create basic append format. Research: how to arrange chronologically, angular.js styling.
+Look into deleting a field from mongoDB if field length reaches 0. Connect server to Mongo database. Create GET req for all database events to display on DOM. Create basic append format. Research: how to arrange chronologically, angular.js styling.
 10-17 Tues
 
 Create User Home page. Work out POST req for adding an event. Research activity types, and common accessibility needs. 

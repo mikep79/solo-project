@@ -2,7 +2,8 @@
     <p>Events Page!</p>
     <button ng-click='EC.getEvents()'>click</button>
     <ul>
-        <li ng-repeat='eachObj in EC.eventsObj.data'>
+        <!-- show events only if events field exists and has at least one value -->
+        <li ng-repeat='eachObj in EC.eventsObj.data' ng-if="eachObj.events && eachObj.events.length !== 0" >
             {{ eachObj.events }}
         </li>
     </ul>
