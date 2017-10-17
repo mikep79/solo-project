@@ -7,7 +7,7 @@ myApp.controller('EventsController', function(UserService){
 
     vm.getEvents = function(){
         UserService.getEvents();
-        // console.log(vm.eventsObj);
+        console.log(vm.eventsObj);
         
         // logic for removing empty events arrays:
         // for (var i = 0; i < vm.eventsObj.data.length; i++){

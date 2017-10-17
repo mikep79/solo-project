@@ -5,13 +5,15 @@
 - [x] Display data to DOM with GET req.
 - [x] Filter out events from GET events req. Removed [] from schema - eliminates empty fields.
 - [x] Ignore empty [] events arrays for display using ng-if.
+- [x] Create append format for DOM display of events.
+- [ ] Arrange chronologically.
 
 
 
 #Notes
 - use ng-if to hide empty fields.
-- for POST events: 
-    db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: ""  } } });
+- syntax for create new event (POST): 
+    db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: "", time_start: "", time_end: "", count: null, access_tags: [], content_tags: []  } } });
 - [ ] My events: add feature so that items marked as "attending" also show up.np
 
 - use ng-init to call function on page load.
