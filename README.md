@@ -3,8 +3,19 @@
 - [X] Make View Events page and connect with controller and service.
 - [x] Modify user.js schema file to include events.
 - [x] Display data to DOM with GET req.
-- [ ] Filter out events from GET events req.
+- [x] Filter out events from GET events req. Removed [] from schema - eliminates empty fields.
+- [ ] Ignore empty [] events arrays. Remove hashkeys from db query.
 
+
+
+#Notes
+- for POST events: 
+    db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: ""  } } });
+- [ ] My events: add feature so that items marked as "attending" also show up.np
+
+- use ng-init to call function on page load.
+to find entire records where events exists.
+    dbEvents.find({"events" : {$exists: true} });
 
 ### Schedule
 Create README with detailed steps, plan database structure. Simplify Create User page and Home pages to plain templates. Research: how to get Calendar selector on page. Create Events (view  all) page and connect with controllers and services. Create Schema file.

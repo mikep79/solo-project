@@ -4,7 +4,8 @@ var dbEvents = require('../models/user.js');
 
 router.get('/', function(req, res){
     console.log('/events route hit');
-    dbEvents.find({}, function(err, results){
+    // filter events from db query, eliminate id
+    dbEvents.find( {}, {events: 1, _id: 0, }, function(err, results){
         if (err){
             console.log('db GET error: ', err);
             res.sendStatus(500);
