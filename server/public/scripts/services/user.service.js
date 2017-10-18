@@ -45,7 +45,7 @@ myApp.factory('UserService', function ($http, $location) {
 
         // loop through each user
         for (var i = 0; i < res.data.length; i++) {
-          // if statement to remove users with no events
+          // if statement to remove users with no "events" array
           if (res.data[i].events) {
             // loop through user[i]'s event objects
             for (var j = 0; j < res.data[i].events.length; j++) {

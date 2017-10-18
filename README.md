@@ -7,7 +7,7 @@
 - [x] Ignore empty [] events arrays for display using ng-if.
 - [x] Create append format for DOM display of events.
 - [x] Added location details to schema and other files.
-- [x] Arrange chronologically.
+- [x] Arrange events on DOM chronologically by sorting into single array in service.
 
 
 
@@ -16,6 +16,11 @@
 - syntax for create new event (POST): 
     db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: "", location: { name: '', street: '', city: '', state: '', zip: ''}, time_start: "", time_end: "", count: null, access_tags: [], content_tags: []  } } });
 - [ ] My Events pg: add feature so that items marked as "attending" also show up.
+Angular material notes:
+- Angular material: "dialogs" for prompts/alerts.
+- material.angular.io --> getting started.
+- hammer.js -- angular accessible
+- import themes to style.css. (themes found in node_modules-angular after npm installing)
 
 - use ng-init to call function on page load.
 to find entire records where events exists.
@@ -25,10 +30,10 @@ to find entire records where events exists.
 Create README with detailed steps, plan database structure. Simplify Create User page and Home pages to plain templates. Research: how to get Calendar selector on page. Create Events (view  all) page and connect with controllers and services. Create Schema file.
 10-16 Mon   DONE!
 
-Look into deleting a field from mongoDB if field length reaches 0. Connect server to Mongo database. Create GET req for all database events to display on DOM. Create basic append format. Research: how to arrange chronologically, angular.js styling.
-10-17 Tues
+Look into deleting a field from mongoDB if field length reaches 0. Connect server to Mongo database. Create GET req for all database events to display on DOM. Create basic append format. Research: how to arrange chronologically.
+10-17 Tues DONE!
 
-Create User Home page. Work out POST req for adding an event. Research activity types, and common accessibility needs. 
+Create User Home page. Work out POST req for adding an event (using info pg?). Research activity types, and common accessibility needs, angular.js styling
 10-18 Wed
 
 Secure icons for activities/needs. Develop Create Event page, connect to POST req and controller/service.
