@@ -1,5 +1,9 @@
-myApp.controller('CreateController', function(UserService) {
-  console.log('CreateController created');
+myApp.controller('CreateController', function (UserService) {
   var vm = this;
   vm.userService = UserService;
+
+  vm.grabEvent = function () {
+    UserService.createEvent();
+  }
+
 });

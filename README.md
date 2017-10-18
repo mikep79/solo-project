@@ -8,7 +8,11 @@
 - [x] Create append format for DOM display of events.
 - [x] Added location details to schema and other files.
 - [x] Arrange events on DOM chronologically by sorting into single array in service.
-
+- [x] Converted info to events page and sourced controller.
+- [x] Added basic PUT req from server to dB to create event. Set up DOM to server connection.
+- [ ] Send info from service to server to dB.
+- [ ] Add inputs for new create event to DOM.
+- [ ] Send new event info from DOM to dB.
 
 
 #Notes

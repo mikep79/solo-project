@@ -5,6 +5,9 @@ myApp.factory('UserService', function ($http, $location) {
   var eventsObject = {
     data: []
   };
+  var testObj = { 
+    key: 'value'
+  };
 
   return {
     userObject: userObject,
@@ -56,6 +59,14 @@ myApp.factory('UserService', function ($http, $location) {
           }
         }
 
+      });
+    },
+
+    // post new event
+    createEvent: function(){
+      // console.log('createEvent service func called');
+      $http.put('/create').then(function (res){
+        console.log('PUT response from server: ', res);
       });
     }
 
