@@ -3,5 +3,22 @@
   <p>
     In Create Event page
   </p>
+  <form>
+    <p>Event Name: <input type="text" ng-model='CC.nameIn'></p>
+    <p>Description: <input type="text" ng-model='CC.descriptionIn'></p>
+    <p>Location:</p>
+    <p>Place: <input type="text" ng-model='CC.locNameIn'></p>
+    <p>Street: <input type="text" ng-model='CC.streetIn'></p>
+    <p>City: <input type="text" ng-model='CC.cityIn'></p>
+    <p>State: <input type="text" ng-model='CC.stateIn'></p>
+    <p>Zip: <input type="text" ng-model='CC.zipIn'></p>
+    <p>Beginning Time: <input type="text" ng-model='CC.timeStartIn'></p>
+    <p>End Time: <input type="text" ng-model='CC.timeEndIn'></p>
+    <p>Access Tags: <input type="text" ng-model='CC.accessTagsIn'></p>
+    <p>Content Tags: <input type="text" ng-model='CC.contentTagsIn'></p>
+    <!-- ADD COUNT! -->
+
+
+  </form>
   <button ng-click='CC.grabEvent()'>Submit New Event</button>
 </div>

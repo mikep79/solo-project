@@ -5,12 +5,6 @@ myApp.factory('UserService', function ($http, $location) {
   var eventsObject = {
     data: []
   };
-  var testObj = { 
-    username: "e" ,
-    events: { 
-      name: "thing11", description: "thing11desc", location: { name: 'Somewhere!', street: '202 9th St', city: 'Mapleton', state: 'MN', zip: '11111'}, time_start: "2014-01-17T15:00:00Z", time_end: "2014-01-17T16:00:00Z", count: null, access_tags: ['blindness', 'ramp'], content_tags: ['movies']
-    }
-  };
 
   return {
     userObject: userObject,
@@ -66,9 +60,13 @@ myApp.factory('UserService', function ($http, $location) {
     },
 
     // post new event
-    createEvent: function(){
+    createEvent: function(eventObj){
       // console.log('createEvent service func called');
-      $http.put('/create', testObj).then(function (res){
+      var eventObj = {
+        username: userObject.userName,
+        events: eventObj
+      };
+      $http.put('/create', eventObj).then(function (res){
         console.log('PUT response from server: ', res);
       });
     }

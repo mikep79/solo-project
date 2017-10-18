@@ -11,11 +11,12 @@
 - [x] Converted info to events page and sourced controller.
 - [x] Added basic PUT req from server to dB to create event. Set up DOM to server connection.
 - [x] Send info from service to server to dB with testObj event.
-- [ ] Add inputs for new create event to DOM.
-- [ ] Send new event info from DOM to dB.
+- [x] Add inputs for new create event to DOM.
+- [x] Send new event info from DOM to dB.
 
 
 #Notes
+- sample time:   2014-01-17T16:00:00.000Z
 - check: make sure in get events function in user.service.js, that "events: []" are removed before displaying on DOM (if problematic, use ng-if to remove)
 - syntax for create new event (POST): 
     db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: "", location: { name: '', street: '', city: '', state: '', zip: ''}, time_start: "", time_end: "", count: null, access_tags: [], content_tags: []  } } });
