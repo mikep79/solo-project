@@ -2,6 +2,17 @@ myApp.controller('CreateController', function (UserService) {
   var vm = this;
   vm.userService = UserService;
 
+  vm.accessTagsIn = {
+    wheelchair: false,
+    deafness: false
+  }
+
+  vm.toggleAccessTag = function(tag){
+    // console.log(tag, 'tag toggled: ', vm.accessTagsIn[tag]);
+    vm.accessTagsIn[tag] = !vm.accessTagsIn[tag];
+    // console.log('access tags object: ', vm.accessTagsIn);
+  };
+
   vm.grabEvent = function () {
     vm.eventObj = {
       name: vm.nameIn,
@@ -19,8 +30,7 @@ myApp.controller('CreateController', function (UserService) {
       access_tags: vm.accessTagsIn,
       content_tags: vm.contentTagsIn
     };
-    console.log('vm.eventObj: ', vm.eventObj);
-    
+    // console.log('vm.eventObj: ', vm.eventObj);
     UserService.createEvent(vm.eventObj);
   }
 

@@ -2,6 +2,7 @@ myApp.factory('UserService', function ($http, $location) {
   // console.log('UserService Loaded');
 
   var userObject = {};
+  // object containing ALL events
   var eventsObject = {
     data: []
   };
@@ -41,7 +42,7 @@ myApp.factory('UserService', function ($http, $location) {
     // get all events
     getEvents: function () {
       $http.get('/events').then(function (res) {
-        console.log('response from server: ', res);
+        // console.log('response from server: ', res);
 
         // loop through each user
         for (var i = 0; i < res.data.length; i++) {
@@ -67,7 +68,7 @@ myApp.factory('UserService', function ($http, $location) {
         events: eventObj
       };
       $http.put('/create', eventObj).then(function (res){
-        console.log('PUT response from server: ', res);
+        // console.log('PUT response from server: ', res);
       });
     }
 

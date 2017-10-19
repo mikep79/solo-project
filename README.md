@@ -13,10 +13,13 @@
 - [x] Send info from service to server to dB with testObj event.
 - [x] Add inputs for new create event to DOM.
 - [x] Send new event info from DOM to dB.
+- [x] Refactored access tags array into access tags object with boolean values.
+- [x] Added access buttons. Modified schema. Basic functionality of access tags complete.
 
 
 #Notes
 - sample time:   2014-01-17T16:00:00.000Z
+- For icons, go to bookmarked office of disability rights and use content or link to relevant pages, so users can hover over an icon to "find out more" (what that means).
 - check: make sure in get events function in user.service.js, that "events: []" are removed before displaying on DOM (if problematic, use ng-if to remove)
 - syntax for create new event (POST): 
     db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: "", location: { name: '', street: '', city: '', state: '', zip: ''}, time_start: "", time_end: "", count: null, access_tags: [], content_tags: []  } } });
@@ -33,21 +36,21 @@ to find entire records where events exists.
 
 ### Schedule
 Create README with detailed steps, plan database structure. Simplify Create User page and Home pages to plain templates. Research: how to get Calendar selector on page. Create Events (view  all) page and connect with controllers and services. Create Schema file.
-10-16 Mon   DONE!
+10-16 Mon       DONE!
 
 Look into deleting a field from mongoDB if field length reaches 0. Connect server to Mongo database. Create GET req for all database events to display on DOM. Create basic append format. Research: how to arrange chronologically.
-10-17 Tues DONE!
+10-17 Tues      DONE!
 
-Create User Home page. Work out POST req for adding an event (using info pg?). Research activity types, and common accessibility needs, angular.js styling
-10-18 Wed
+Create User Home page. Work out POST req for adding an event (using info pg?). Develop Create Event page, connect to POST req and controller/service. Research activity types, and common accessibility needs, angular.js styling
+10-18 Wed       DONE!
 
-Secure icons for activities/needs. Develop Create Event page, connect to POST req and controller/service.
+Plan out POST req (sending filter data, retrieving data - use /events route) for filtering data for Find Event page. Plan out how icons will push items into tag arrays and test. Research: look for some sample icons.
 10-19 Thurs
 
-Finish gathering icons. Create Find Event page and work out POST req for filtered data.
+Finish gathering icons. Create Find Event page and work out POST req for filtered data. Research: using Angular-style popups for selections on Create Event page instead of form.
 10-20 Fri
 
-Plan out styling elements. Preliminary logo design.
+Plan out styling elements. Preliminary logo design. Talk to Amber about accessibility needs, discuss icon usage. Secure icons for use.
 10-21 Saturday
 
 10-22 Sunday
@@ -82,7 +85,6 @@ Solo presentation.
 - [ ] Integrate Google Calendar API so users can add event to their own calendar.
 - [ ] Possibly use Yelp or Foursquare API to get additional data.
 - [ ] Add page for users to save places that are accessible.
-
 
 # add to readme:
 ## Screen Shot (of app)
