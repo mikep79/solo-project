@@ -21,7 +21,7 @@
 - sample time:   2014-01-17T16:00:00.000Z
 - For icons, go to bookmarked office of disability rights and use content or link to relevant pages, so users can hover over an icon to "find out more" (what that means).
 - check: make sure in get events function in user.service.js, that "events: []" are removed before displaying on DOM (if problematic, use ng-if to remove)
-- syntax for create new event (POST): 
+- syntax for create new event (POST):
     db.users.updateOne({ username: "" }, { $push: { events: { name: "", description: "", location: { name: '', street: '', city: '', state: '', zip: ''}, time_start: "", time_end: "", count: null, access_tags: [], content_tags: []  } } });
 - [ ] My Events pg: add feature so that items marked as "attending" also show up.
 Angular material notes:

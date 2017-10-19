@@ -43,7 +43,7 @@ myApp.factory('UserService', function ($http, $location) {
     getEvents: function () {
       $http.get('/events').then(function (res) {
         // console.log('response from server: ', res);
-
+        var eventsArray = [];
         // loop through each user
         for (var i = 0; i < res.data.length; i++) {
           // if statement to remove users with no "events" array
@@ -51,12 +51,13 @@ myApp.factory('UserService', function ($http, $location) {
             // loop through user[i]'s event objects
             for (var j = 0; j < res.data[i].events.length; j++) {
               var newItem = res.data[i].events[j];
-              // push each event object to async. array
-              eventsObject.data.push(newItem);
+              // push each event into temporary eventsArray
+              eventsArray.push(newItem);
             }
           }
         }
-
+        // populate asynchronous events obj.
+        eventsObject.data = eventsArray;
       });
     },
 
