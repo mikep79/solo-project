@@ -15,7 +15,8 @@
 - [x] Send new event info from DOM to dB.
 - [x] Refactored access tags array into access tags object with boolean values.
 - [x] Added access buttons. Modified schema. Basic functionality of access tags complete.
-
+- [x] Added basic myEvents page, controllers, and functions.
+- [ ] Add Get My Events function to myEvents page, but error because username not being held on page refresh.
 
 #Notes
 - filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):

@@ -6,10 +6,14 @@ myApp.factory('UserService', function ($http, $location) {
   var eventsObject = {
     data: []
   };
+  var myEventsObject = {
+    data: []
+  };
 
   return {
     userObject: userObject,
     eventsObject: eventsObject,
+    myEventsObject: myEventsObject,
 
     // called in client.js when /user url hit (login)
     getuser: function () {
@@ -70,6 +74,16 @@ myApp.factory('UserService', function ($http, $location) {
       };
       $http.put('/create', eventObj).then(function (res){
         // console.log('PUT response from server: ', res);
+      });
+    },
+
+    // get My Events
+    getMyEvents: function(){
+      // console.log('myEvents POST req for my events');
+      $http.post('/myEvents', userObject).then(function(res){
+        console.log('Res from getMyEvents call: ', res);
+        myEventsObject.data = res.data[0].events;
+        console.log('myEvents Obj array : ', myEventsObject.data);        
       });
     },
 
