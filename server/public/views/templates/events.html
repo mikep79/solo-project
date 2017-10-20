@@ -1,5 +1,6 @@
 <div ng-init='EC.getEvents()'>
     <p>Events Page!</p>
+    <button ng-click='EC.sortEvents()'>Sort Events</button>
     <button ng-click='EC.getEvents()'>click</button>
     <div ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" '>
         <!-- add if needed to remove empty event arrays     -->

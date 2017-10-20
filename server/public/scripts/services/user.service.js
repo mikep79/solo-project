@@ -71,6 +71,15 @@ myApp.factory('UserService', function ($http, $location) {
       $http.put('/create', eventObj).then(function (res){
         // console.log('PUT response from server: ', res);
       });
+    },
+
+    // delete event
+    deleteEvent: function(){
+      // console.log('delete service call');
+      
+      $http.delete('/myEvents').then(function(res){
+        console.log('res from delete call: ', res);
+      });
     }
 
   };

@@ -18,7 +18,12 @@
 
 
 #Notes
-- sample time:   2014-01-17T16:00:00.000Z
+- filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):
+db.users.find( { "events.access_tags.wheelchair": true}, {events: {$elemMatch:  { access_tags: {"wheelchair": true, "deafness": false } } } } );
+- find two values, remove id's, but will still return some empty users... :
+db.users.find( { $and: [ { "events.access_tags.wheelchair": true }, { "events.access_tags.deafness": true } ] }, {events: {$elemMatch:  { access_tags: {"wheelchair": true, "deafness": true } } }, _id: 0 } );
+
+- sample time:   2014-01-09T16:00:00.000Z
 - For icons, go to bookmarked office of disability rights and use content or link to relevant pages, so users can hover over an icon to "find out more" (what that means).
 - check: make sure in get events function in user.service.js, that "events: []" are removed before displaying on DOM (if problematic, use ng-if to remove)
 - syntax for create new event (POST):
@@ -47,7 +52,7 @@ Create User Home page. Work out POST req for adding an event (using info pg?). D
 Plan out POST req (sending filter data, retrieving data - use /events route) for filtering data for Find Event page. Plan out how icons will push items into tag arrays and test. Research: look for some sample icons.
 10-19 Thurs
 
-Finish gathering icons. Create Find Event page and work out POST req for filtered data. Research: using Angular-style popups for selections on Create Event page instead of form.
+Finish gathering icons. Create Find Event page and work out POST req for filtered data. Research: using Angular-style popups for selections on Create Event page instead of form. Create My Events page. Connect to new /myEvents route : POST req to grab all events, PUT req to select and delete an event. 
 10-20 Fri
 
 Plan out styling elements. Preliminary logo design. Talk to Amber about accessibility needs, discuss icon usage. Secure icons for use.
