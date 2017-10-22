@@ -18,6 +18,9 @@
 - [x] Added basic myEvents page, controllers, and functions.
 - [x] Add Get My Events function to myEvents page.
 - [x] Add delete function button and functionality as PUT req.
+- [ ] Add basic angularjs Material styling.
+- [ ] Add "attending" button to view events page.
+
 
 #errors:
 My Events page: error on page refresh because username variable lost on page refresh.
@@ -55,17 +58,15 @@ Create User Home page. Work out POST req for adding an event (using info pg?). D
 10-18 Wed       DONE!
 
 Plan out POST req (sending filter data, retrieving data - use /events route) for filtering data for Find Event page. Plan out how icons will push items into tag arrays and test. Research: look for some sample icons.
-10-19 Thurs
+10-19 Thurs     DONE!
 
-Finish gathering icons. Create Find Event page and work out POST req for filtered data. Research: using Angular-style popups for selections on Create Event page instead of form. Create My Events page. Connect to new /myEvents route : POST req to grab all events, PUT req to select and delete an event. 
-10-20 Fri
+Research: using Angular-style popups for selections on Create Event page instead of form. Create My Events page. Connect to new /myEvents route : POST req to grab all events, PUT req to select and delete an event. 
+10-20 Fri       DONE!
 
-Plan out styling elements. Preliminary logo design. Talk to Amber about accessibility needs, discuss icon usage. Secure icons for use.
-10-21 Saturday
+Finish gathering icons. Create Find Event page and work out POST req for filtered data. Plan out styling elements. Preliminary logo design. Talk to Amber about accessibility needs, discuss icon usage. Secure icons for use. Build My Events page, delete and display functionality.
+10-21 Saturday, Sunday
 
-10-22 Sunday
-
-Add basic styling. Finish logo. Build My Events page and POST req for logic.
+Add basic styling. Finish logo. 
 10-23 Mon
 
 Refine styling and practice deploying to Heroku with database. Bug fixes.
@@ -90,6 +91,7 @@ Solo presentation.
 
 ### Stretch Goals
 
+- [ ] Add to myEvents page: list of events marked as "attending".
 - [ ] Add slide show of sample events, or graphic elements on home page in place of description of app.
 - [ ] Add feature to allow users to delete events they have created. Two options: call delete function with icon placed next to User’s created events, or have separate “My Events” page containing only that user’s events.
 - [ ] Integrate Google Calendar API so users can add event to their own calendar.
