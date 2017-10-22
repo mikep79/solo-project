@@ -18,6 +18,8 @@
 - [x] Added basic myEvents page, controllers, and functions.
 - [x] Add Get My Events function to myEvents page.
 - [x] Add delete function button and functionality as PUT req.
+- [x] Sourced in angularjs Material. 
+- [x] npm installed angular and angular route for new versions.
 - [ ] Add basic angularjs Material styling.
 - [ ] Add "attending" button to view events page.
 
