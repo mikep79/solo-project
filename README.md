@@ -16,7 +16,11 @@
 - [x] Refactored access tags array into access tags object with boolean values.
 - [x] Added access buttons. Modified schema. Basic functionality of access tags complete.
 - [x] Added basic myEvents page, controllers, and functions.
-- [ ] Add Get My Events function to myEvents page, but error because username not being held on page refresh.
+- [x] Add Get My Events function to myEvents page.
+- [x] Add delete function button and functionality as PUT req.
+
+#errors:
+My Events page: error on page refresh because username variable lost on page refresh.
 
 #Notes
 - filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):

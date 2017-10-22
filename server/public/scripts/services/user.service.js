@@ -88,10 +88,13 @@ myApp.factory('UserService', function ($http, $location) {
     },
 
     // delete event
-    deleteEvent: function(){
+    deleteEvent: function(event){
       // console.log('delete service call');
-      
-      $http.delete('/myEvents').then(function(res){
+      var deleteObj = {
+        username: userObject.userName,
+        eventObj: event
+      }
+      $http.put('/myEvents', deleteObj).then(function(res){
         console.log('res from delete call: ', res);
       });
     }

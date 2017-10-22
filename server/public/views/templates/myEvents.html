@@ -1,12 +1,12 @@
 <div ng-init='MYC.getMyEvents()'>
     <button ng-click='MYC.getEvents()'>Get Events</button>
     <br>
-    <button ng-click='MYC.deleteEvent()'>Delete Event</button>
-    <br>
     <button ng-click='MYC.getMyEvents()'>Get My Events</button>
-    <div>
-        <p ng-repeat='eachEvent in MYC.myEvents.data'>
+    <div ng-repeat='eachEvent in MYC.myEvents.data'>
+        <p >
             {{ eachEvent }}
+            <br>
+            <button ng-click='MYC.deleteEvent(eachEvent)'>Delete Event</button>
         </p>
     </div>
 </div>

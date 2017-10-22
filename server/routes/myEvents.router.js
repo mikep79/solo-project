@@ -14,9 +14,18 @@ router.post('/', function(req, res){
     });
 });
 
-router.delete('/', function(req, res){
-    console.log('router delete req hit with req body:', req.body);
-    
+router.put('/', function(req, res){
+    // console.log('router delete req hit with req body:', req.body);
+    var un = req.body.username;
+    var deleteObj = req.body.eventObj;
+    dbEvents.update({ username : un }, {$pull : { "events" : { deleteObj } } }, function(err){
+        if (err){
+            console.log('delete event error: ', err);
+            res.sendStatus(500);
+        } else {
+            res.sendStatus(200);
+        }
+    });
 });
 
 module.exports = router;

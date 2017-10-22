@@ -10,9 +10,9 @@ myApp.controller('MyEventsController', function(UserService){
         console.log('Myevents: ', vm.myEvents);
     };
 
-    vm.deleteEvent = function(){
-        // console.log('delete event func called');
-        vm.UserService.deleteEvent();
+    vm.deleteEvent = function(event){
+        // console.log('delete event func called for event: ', event);
+        vm.UserService.deleteEvent(event);
     };
 
 });
