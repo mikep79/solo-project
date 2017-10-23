@@ -111,11 +111,9 @@ myApp.factory('UserService', function ($http, $location) {
       });
     },
 
-    addCount: function(event){
+    addCount: function(eventId){
       console.log('add to event count');
-      console.log('event count: ', event.count);
-      
-      $http.put('/events', event).then(function(res){
+      $http.put('/events/' + eventId).then(function(res){
         console.log('response from addCount call: ', res);
       });
     }

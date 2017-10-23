@@ -11,7 +11,8 @@
         <!-- ng-if='eachEvent && eachEvent.length !== 0' -->
         <ul>
             <li>Name: {{ eachEvent.name }}</li>
-            <md-button ng-click='EC.addCount(eachEvent)'>
+            <li>_id: {{ eachEvent._id }} </li>
+            <md-button ng-click='EC.addCount(eachEvent._id)'>
                 <md-icon md-svg-src="svg/heart.svg"></md-icon>
             </md-button>
             <span>People Attending: </span>

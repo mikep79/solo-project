@@ -27,7 +27,7 @@ myApp.controller('CreateController', function (UserService) {
       },
       time_start: vm.timeStartIn,
       time_end: vm.timeEndIn,
-      count: null,
+      count: 0,
       access_tags: vm.accessTagsIn,
       content_tags: vm.contentTagsIn
     };

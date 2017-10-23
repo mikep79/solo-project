@@ -13,16 +13,17 @@ myApp.controller('EventsController', function(UserService){
     //     console.log('heart and heartBorder: ', vm.heart, vm.heartBorder);
     // };
 
-    vm.addCount = function(event){
-        // console.log('add to event count');
-        // console.log('event count: ', event.count);
-        if (event.count === null){
-            event.count = 1;
-        } else {
-            event.count++;
-        }
-        // console.log('event count: ', event.count);
-        UserService.addCount(event);
+    vm.addCount = function(eventId){
+        console.log('event obj: ', eventId);
+        
+        // // console.log('event count: ', event.count);
+        // if (event.count === null){
+        //     event.count = 1;
+        // } else {
+        //     event.count++;
+        // }
+        // // console.log('event count: ', event.count);
+        UserService.addCount(eventId);
     };
 
     vm.getEvents = function(){
