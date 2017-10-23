@@ -26,7 +26,11 @@
     </md-input-container>
     <md-input-container>
       <label>State</label>
-      <input ng-model='CC.stateIn'>
+      <md-select ng-model="CC.stateIn">
+        <md-option ng-repeat="eachState in CC.states" ng-value="eachState">
+          {{eachState}}
+        </md-option>
+      </md-select>
     </md-input-container>
     <md-input-container>
       <label>Zip</label>
@@ -40,16 +44,64 @@
       <label>End Time</label>
       <input type='datetime-local' ng-model='CC.timeEndIn'>
     </md-input-container>
+
+    <!-- Switches for accessibility -->
+    <div layout='row'>
+      <md-switch ng-model="CC.accessTagsIn.wheelchair" aria-label="Wheelchair access" ng-true-value="true" ng-false-value="false"
+        class="md-warn">
+        Wheelchair Access
+      </md-switch>
+      <md-switch ng-model="CC.accessTagsIn.deafness" aria-label="Wheelchair access" ng-true-value="true" ng-false-value="false"
+        class="md-warn">
+        Hearing Impairment
+      </md-switch>
+    </div>
+    <div layout='row'>
+      <md-switch ng-model="CC.accessTagsIn.blind" aria-label="Blind" ng-true-value="true" ng-false-value="false" class="md-warn">
+        Access for the Blind
+      </md-switch>
+      <md-switch ng-model="CC.accessTagsIn.bathroom" aria-label="Accessible Bathroom" ng-true-value="true" ng-false-value="false"
+        class="md-warn">
+        Accessible Bathroom
+      </md-switch>
+    </div>
+    <div layout='row'>
+      <md-switch ng-model="CC.accessTagsIn.attendant" aria-label="Personal Attendant" ng-true-value="true" ng-false-value="false"
+        class="md-warn">
+        Attendant on Site
+      </md-switch>
+      <md-switch ng-model="CC.accessTagsIn.sensory" aria-label="Sensory sensitive" ng-true-value="true" ng-false-value="false"
+        class="md-warn">
+        Sensory sensitive
+      </md-switch>
+    </div>
     
-    <md-button ng-click='CC.toggleAccessTag("wheelchair")'>Vision tag</md-button>
-    <md-button ng-click='CC.toggleAccessTag("deafness")'>Hearing tag</md-button>
     <md-input-container>
+      <label>Activity</label>
+      <md-select ng-model="CC.contentTagsIn">
+        <md-option ng-repeat="eachActivity in CC.content" ng-value="eachActivity">
+          {{ eachActivity }}
+        </md-option>
+      </md-select>
+    </md-input-container>
+    <md-button ng-click='CC.grabEvent()'>Submit New Event</md-button>
+  </form>
+
+
+  <!-- <p>2014-01-09T16:00:00.000Z</p> -->
+
+  <!-- plain text state input: 
+  <md-input-container>
+      <label>State</label>
+      <input ng-model='CC.stateIn'>
+    </md-input-container> -->
+  <!-- <md-input-container>
       <label>Content Tags:</label>
       <input ng-model='CC.contentTagsIn'>
-    </md-input-container>
-    <p>2014-01-09T16:00:00.000Z</p>
-  </form>
-  <md-button ng-click='CC.grabEvent()'>Submit New Event</md-button>
+    </md-input-container> -->
+
+  <!-- <md-button ng-click='CC.toggleAccessTag("wheelchair")'>Wheelchair access</md-button>
+  <md-button ng-click='CC.toggleAccessTag("deafness")'>Signing Interpreter</md-button> -->
   <!-- <md-input-container>
       <label>Date</label>
       <md-datepicker ng-model="CC.dateIn"></md-datepicker>

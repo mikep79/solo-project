@@ -21,6 +21,7 @@
 - [x] Sourced in angularjs Material. 
 - [x] npm installed angular and angular route for new versions.
 - [x] Add basic angularjs Material styling.
+- [x] Added switches and selectors for create events page. Updated schema for content & access.
 - [ ] Add "attending" button to view events page.
 
 
