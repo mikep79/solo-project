@@ -14,6 +14,9 @@ myApp.controller('CreateController', function (UserService) {
   };
 
   vm.grabEvent = function () {
+    console.log('test input: ', vm.testInput);
+    
+    
     vm.eventObj = {
       name: vm.nameIn,
       description: vm.descriptionIn,
@@ -24,14 +27,16 @@ myApp.controller('CreateController', function (UserService) {
         state: vm.stateIn,
         zip: vm.zipIn
       },
-      time_start: vm.timeStartIn,
+      // time_start: vm.timeStartIn,
+      time_start: vm.dateIn + 'testinsert' + vm.timeEndIn,
       time_end: vm.timeEndIn,
       count: null,
       access_tags: vm.accessTagsIn,
-      content_tags: vm.contentTagsIn
+      content_tags: vm.contentTagsIn,
+      time_test: vm.testIn
     };
-    // console.log('vm.eventObj: ', vm.eventObj);
-    UserService.createEvent(vm.eventObj);
+    // console.log('vm.eventObj: ', vm.dateIn, vm.eventObj);
+    // UserService.createEvent(vm.eventObj);
   }
 
 });

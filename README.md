@@ -20,12 +20,15 @@
 - [x] Add delete function button and functionality as PUT req.
 - [x] Sourced in angularjs Material. 
 - [x] npm installed angular and angular route for new versions.
-- [ ] Add basic angularjs Material styling.
+- [x] Add basic angularjs Material styling.
 - [ ] Add "attending" button to view events page.
 
 
 #errors:
-My Events page: error on page refresh because username variable lost on page refresh.
+My Events page: 
+- error on page refresh because username variable lost on page refresh.
+When creating event, allows duplicate events to be created. When deleting, will delete both events.
+
 
 #Notes
 - filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):

@@ -4,24 +4,70 @@
     In Create Event page
   </p>
   <form>
-    <p>Event Name: <input type="text" ng-model='CC.nameIn'></p>
-    <p>Description: <input type="text" ng-model='CC.descriptionIn'></p>
-    <p>Location:</p>
-    <p>Place: <input type="text" ng-model='CC.locNameIn'></p>
-    <p>Street: <input type="text" ng-model='CC.streetIn'></p>
-    <p>City: <input type="text" ng-model='CC.cityIn'></p>
-    <p>State: <input type="text" ng-model='CC.stateIn'></p>
-    <p>Zip: <input type="text" ng-model='CC.zipIn'></p>
+    <md-input-container>
+      <label>Name</label>
+      <input ng-model='CC.nameIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>Description</label>
+      <input ng-model='CC.descriptionIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>Place</label>
+      <input ng-model='CC.locNameIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>Street</label>
+      <input ng-model='CC.streetIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>City</label>
+      <input ng-model='CC.cityIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>State</label>
+      <input ng-model='CC.stateIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>Zip</label>
+      <input ng-model='CC.zipIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>Start Time</label>
+      <input type='datetime-local' ng-model='CC.timeStartIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>End Time</label>
+      <input type='datetime-local' ng-model='CC.timeEndIn'>
+    </md-input-container>
+    
+    <md-button ng-click='CC.toggleAccessTag("wheelchair")'>Vision tag</md-button>
+    <md-button ng-click='CC.toggleAccessTag("deafness")'>Hearing tag</md-button>
+    <md-input-container>
+      <label>Content Tags:</label>
+      <input ng-model='CC.contentTagsIn'>
+    </md-input-container>
     <p>2014-01-09T16:00:00.000Z</p>
-    <p>Beginning Time: <input type="text" ng-model='CC.timeStartIn'></p>
-    <p>End Time: <input type="text" ng-model='CC.timeEndIn'></p>
-    <!-- <p>Access Tags: <input type="text" ng-model='CC.accessTagsIn'></p> -->
-    <button ng-click='CC.toggleAccessTag("wheelchair")'>Vision tag</button>
-    <button ng-click='CC.toggleAccessTag("deafness")'>Hearing tag</button>
-    <p>Content Tags: <input type="text" ng-model='CC.contentTagsIn'></p>
-    <!-- ADD COUNT! -->
-
-
   </form>
-  <button ng-click='CC.grabEvent()'>Submit New Event</button>
+  <md-button ng-click='CC.grabEvent()'>Submit New Event</md-button>
+  <!-- <md-input-container>
+      <label>Date</label>
+      <md-datepicker ng-model="CC.dateIn"></md-datepicker>
+    </md-input-container>
+    <md-input-container>
+      <label>Start Time</label>
+      <input type="time" ng-model='vm.timeStartIn'>
+    </md-input-container>
+    <md-input-container>
+      <label>End Time</label>
+      <input type="time" ng-model='vm.timeEndIn'>
+    </md-input-container> -->
+
+  <!-- <p>Beginning Time:
+      <input type="text" ng-model='CC.timeStartIn'>
+    </p>
+    <p>End Time:
+      <input type="text" ng-model='CC.timeEndIn'>
+    </p> -->
+  <!-- <p>Access Tags: <input type="text" ng-model='CC.accessTagsIn'></p> -->
 </div>
