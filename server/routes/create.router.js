@@ -3,7 +3,7 @@ var router = require('express').Router();
 var dbEvents = require('../models/user.js');
 
 router.put('/', function(req, res){
-    // console.log('Create route hit with req body: ', req.body);
+    // console.log('Create route hit with req username: ', req.user.username);
     var b = req.body;
     
     dbEvents.updateOne({ username: b.username }, { $push: { events: b.events } }, function(err){
