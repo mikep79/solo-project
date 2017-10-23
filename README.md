@@ -29,7 +29,8 @@ Two Collection data structure:
 - [x] Added get events process.
 - Add "attending" button to view events page:
     - [x] Increment count with /events PUT req sending event _id as param.
-    - [ ] Clean up user schema.
+    - [x] Clean up user schema.
+    - [x] Click attend button add's event _id to user's "attend" array.
 
 
 

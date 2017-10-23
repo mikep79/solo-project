@@ -14,16 +14,9 @@ myApp.controller('EventsController', function(UserService){
     // };
 
     vm.addCount = function(eventId){
-        console.log('event obj: ', eventId);
-        
-        // // console.log('event count: ', event.count);
-        // if (event.count === null){
-        //     event.count = 1;
-        // } else {
-        //     event.count++;
-        // }
-        // // console.log('event count: ', event.count);
+        // console.log('event obj: ', eventId);
         UserService.addCount(eventId);
+        vm.getEvents();
     };
 
     vm.getEvents = function(){

@@ -7,9 +7,7 @@ var SALT_WORK_FACTOR = 10;
 var UserSchema = new Schema({
     username: {type: String, required: true, index: {unique: true}},
     password: {type: String, required: true},
-    // added events schema
-    // events: {name: String, description: String, count: Number, time_start: Date, time_end: Date, location: { name: String, street: String, city: String, state: String, zip: Number}, access_tags: String, content_tags: String}
-    events: {name: String, description: String, count: Number, time_start: Date, time_end: Date, location: { name: String, street: String, city: String, state: String, zip: Number}, access_tags: {wheelchair: Boolean, deafness: Boolean, blind: Boolean, bathroom: Boolean, attendant: Boolean, sensory: Boolean}, content_tags: String}
+    attend: String
 });
 
 // Called before adding a new user to the DB. Encrypts password.
