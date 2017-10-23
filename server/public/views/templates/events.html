@@ -15,7 +15,7 @@
             <md-button ng-click='EC.addCount(eachEvent._id)'>
                 <md-icon md-svg-src="svg/heart.svg"></md-icon>
             </md-button>
-            <span>People Attending: </span>
+            <span>People Attending: {{ eachEvent.count }}</span>
             <li>Description: {{ eachEvent.description }} </li>
             <li>
                 Location:
@@ -31,7 +31,6 @@
             </li>
             <li>Start time: {{ eachEvent.time_start }} </li>
             <li ng-if='eachEvent.time_end'>End time: {{ eachEvent.time_end }} </li>
-            <li>Count: {{ eachEvent.count }} </li>
             <li>Accessibility: {{ eachEvent.access_tags }} </li>
             <li>Activity: {{ eachEvent.content_tags }} </li>
         </ul>

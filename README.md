@@ -37,6 +37,8 @@ Two Collection data structure:
 #errors:
 My Events page: 
 - When creating event, allows duplicate events to be created. When deleting, will delete both events.
+View Events page:
+- when user click attend button twice, adds duplicate item to array (solution: make Unique part of attend array schema?)
 
 
 #Notes
