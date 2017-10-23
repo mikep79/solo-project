@@ -22,13 +22,13 @@
 - [x] npm installed angular and angular route for new versions.
 - [x] Add basic angularjs Material styling.
 - [x] Added switches and selectors for create events page. Updated schema for content & access.
+- [x] Fixed myEvents page refresh error. Delete functionality working correctly.
 - [ ] Add "attending" button to view events page.
 
 
 #errors:
 My Events page: 
-- error on page refresh because username variable lost on page refresh.
-When creating event, allows duplicate events to be created. When deleting, will delete both events.
+- When creating event, allows duplicate events to be created. When deleting, will delete both events.
 
 
 #Notes

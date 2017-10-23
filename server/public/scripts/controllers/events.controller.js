@@ -3,7 +3,27 @@ myApp.controller('EventsController', function(UserService){
     var vm = this;
     vm.UserService = UserService;
     vm.eventsObj = UserService.eventsObject;
+    vm.heartBorder = true;
+    vm.heart = false;
     // vm.sortedEvents = [];
+    
+    // vm.attend = function(){
+    //     vm.heart = !vm.heart;
+    //     vm.heartBorder = !vm.heartBorder;
+    //     console.log('heart and heartBorder: ', vm.heart, vm.heartBorder);
+    // };
+
+    vm.addCount = function(event){
+        // console.log('add to event count');
+        // console.log('event count: ', event.count);
+        if (event.count === null){
+            event.count = 1;
+        } else {
+            event.count++;
+        }
+        // console.log('event count: ', event.count);
+        UserService.addCount(event);
+    };
 
     vm.getEvents = function(){
         UserService.getEvents();

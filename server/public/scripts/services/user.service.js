@@ -97,6 +97,15 @@ myApp.factory('UserService', function ($http, $location) {
       $http.put('/myEvents', deleteObj).then(function(res){
         console.log('res from delete call: ', res);
       });
+    },
+
+    addCount: function(event){
+      console.log('add to event count');
+      console.log('event count: ', event.count);
+      
+      $http.put('/events', event).then(function(res){
+        console.log('response from addCount call: ', res);
+      });
     }
 
   };

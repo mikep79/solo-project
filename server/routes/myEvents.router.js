@@ -19,7 +19,7 @@ router.post('/', function(req, res){
 router.put('/', function(req, res){
     // console.log('router delete req hit with req body:', req.body);
     var deleteObj = req.body.eventObj;
-    dbEvents.update({ username : req.user.username }, {$pull : { "events" : { name: deleteObj.name, time_start: deleteObj.time_start } } }, function(err){
+    dbEvents.updateOne({ username : req.user.username }, {$pull : { "events" : { name: deleteObj.name, time_start: deleteObj.time_start } } }, function(err){
         if (err){
             console.log('delete event error: ', err);
             res.sendStatus(500);

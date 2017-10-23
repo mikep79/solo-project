@@ -2,11 +2,19 @@
     <p>Events Page!</p>
     <button ng-click='EC.sortEvents()'>Sort Events</button>
     <button ng-click='EC.getEvents()'>click</button>
+    <!-- <md-button ng-click='EC.attend()'>
+        <md-icon ng-if='EC.heartBorder' md-svg-src="svg/heart_border.svg"></md-icon>
+        <md-icon ng-if='EC.heart' md-svg-src="svg/heart.svg"></md-icon>
+    </md-button> -->
     <div ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" '>
         <!-- add if needed to remove empty event arrays     -->
         <!-- ng-if='eachEvent && eachEvent.length !== 0' -->
         <ul>
             <li>Name: {{ eachEvent.name }}</li>
+            <md-button ng-click='EC.addCount(eachEvent)'>
+                <md-icon md-svg-src="svg/heart.svg"></md-icon>
+            </md-button>
+            <span>People Attending: </span>
             <li>Description: {{ eachEvent.description }} </li>
             <li>
                 Location:
