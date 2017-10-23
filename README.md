@@ -26,9 +26,11 @@
 
 Two Collection data structure: 
 - [x] Added new schema and POST event process.
+- [x] Added get events process.
+- Add "attending" button to view events page:
+    - [ ] Increment count with /create PUT req sending event _id as param.
+    - [ ] Clean up user schema.
 
-
-- [ ] Add "attending" button to view events page.
 
 
 #errors:

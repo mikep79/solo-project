@@ -1,11 +1,9 @@
 var router = require('express').Router();
-
-var dbEvents = require('../models/user.js');
+var dbEvents = require('../models/events.js');
 
 router.get('/', function(req, res){
-    console.log('/events route hit');
-    // send events from db query, filter out auto user id
-    dbEvents.find( {}, {events: 1, _id: 0 }, function(err, results){
+    // console.log('/events route hit');
+    dbEvents.find( {}, function(err, results){
         if (err){
             console.log('db GET error: ', err);
             res.sendStatus(500);
