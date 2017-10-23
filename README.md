@@ -23,6 +23,11 @@
 - [x] Add basic angularjs Material styling.
 - [x] Added switches and selectors for create events page. Updated schema for content & access.
 - [x] Fixed myEvents page refresh error. Delete functionality working correctly.
+
+Two Collection data structure: 
+- [x] Added new schema and POST event process.
+
+
 - [ ] Add "attending" button to view events page.
 
 
