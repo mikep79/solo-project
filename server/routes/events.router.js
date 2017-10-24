@@ -15,6 +15,7 @@ router.get('/', function (req, res) {
     });
 });
 
+// add event to user's "attend" array
 router.put('/:id', function (req, res) {
     // console.log('/events route req.params: ', req.params);
     // check if user or guest. User only: 
@@ -37,7 +38,6 @@ router.put('/:id', function (req, res) {
             res.sendStatus(202);
         }
     });
-
 });
 
 module.exports = router;

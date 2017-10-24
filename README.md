@@ -33,6 +33,7 @@ Two Collection data structure:
     - [x] Click attend button add's event _id to user's "attend" array.
 - Add section to my Events containing user's "attending" events.
     - [x] Users attending events displayed on DOM myEvents page. 
+    - [x] Add function to remove an event from users attend array.
 
 
 

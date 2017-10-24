@@ -2,21 +2,6 @@ var router = require('express').Router();
 var dbUsers = require('../models/user.js');
 var dbEvents = require('../models/events.js');
 
-// get all user's events
-// router.post('/', function(req, res){
-//     console.log('Create route hit with req username: ', req.user.username);
-//     // console.log('router POST req hit with req body:', req.body);
-//     // was using username from body: req.body.userName
-//     dbEvents.find({username: req.user.username }, {events: 1, _id: 0 }, function(err, result){
-//         if (err){
-//             console.log('get myEvents POST error: ', err);
-//             res.sendStatus(500);
-//         } else {
-//             res.send(result);
-//         }
-//     });
-// });
-
 // get user's attending events
 router.get('/', function(req, res){
     console.log('Create route hit with req username: ', req.user.username);
@@ -44,16 +29,26 @@ router.get('/', function(req, res){
     });
 });
 
-// delete event from user's events array
-router.put('/', function(req, res){
-    // console.log('router delete req hit with req body:', req.body);
-    var deleteObj = req.body.eventObj;
-    dbUsers.updateOne({ username : req.user.username }, {$pull : { "events" : { name: deleteObj.name, time_start: deleteObj.time_start } } }, function(err){
-        if (err){
-            console.log('delete event error: ', err);
+// remove event from user's attending events array
+router.put('/:id', function (req, res) {
+    console.log('/myEvents route req.params: ', req.params);
+    // check if user or guest. User only: 
+    if (req.user !== undefined) {
+        console.log('/myEvents route username: ', req.user.username);
+        dbUsers.updateOne({ username: req.user.username }, { $pull: { attend: req.params.id } }, function (err) {
+            if (err) {
+                console.log('remove attend user array error: ', err);
+                res.sendStatus(500);
+            }
+        });
+    }
+    // decrement event's attending "count"
+    dbEvents.updateOne({ _id: req.params.id }, { $inc: { count: -1 } }, function (err) {
+        if (err) {
+            console.log('update user error: ', err);
             res.sendStatus(500);
         } else {
-            res.sendStatus(200);
+            res.sendStatus(202);
         }
     });
 });

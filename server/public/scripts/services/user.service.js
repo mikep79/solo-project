@@ -71,6 +71,42 @@ myApp.factory('UserService', function ($http, $location) {
       });
     },
 
+    // get attending events
+    getAttendingEvents: function(){
+      $http.get('/myEvents').then(function(res){
+        // console.log('myEvents attending res: ', res);
+        myAttendingEvents.data = res.data;
+      });
+    },
+
+    // add event to user's "attend" event; increment event count.
+    addAttend: function(eventId){
+      // console.log('add to event count');
+      $http.put('/events/' + eventId).then(function(res){
+        console.log('response from addCount call: ', res);
+      });
+    },
+
+    removeAttend: function(eventId){
+      // console.log('remove from attend');
+      $http.put('/myEvents/' + eventId).then(function(res){
+        console.log('response from removeAttend call: ', res);
+      });
+    }
+
+    // delete event
+    // deleteEvent: function(event){
+    //   // console.log('delete service call');
+    //   var deleteObj = {
+    //     username: userObject.userName,
+    //     eventObj: event
+    //   }
+    //   $http.put('/myEvents', deleteObj).then(function(res){
+    //     console.log('res from delete call: ', res);
+    //   });
+    // },
+
+
     // get user's created Events
     // getMyEvents: function(){
     //   // console.log('myEvents POST req for my events');
@@ -80,33 +116,6 @@ myApp.factory('UserService', function ($http, $location) {
     //     console.log('myEvents Obj array : ', myEventsObject.data);        
     //   });
     // },
-
-    // get attending events
-    getAttendingEvents: function(){
-      $http.get('/myEvents').then(function(res){
-        console.log('myEvents attending res: ', res);
-        myAttendingEvents.data = res.data;
-      });
-    },
-
-    // delete event
-    deleteEvent: function(event){
-      // console.log('delete service call');
-      var deleteObj = {
-        username: userObject.userName,
-        eventObj: event
-      }
-      $http.put('/myEvents', deleteObj).then(function(res){
-        console.log('res from delete call: ', res);
-      });
-    },
-
-    addCount: function(eventId){
-      console.log('add to event count');
-      $http.put('/events/' + eventId).then(function(res){
-        console.log('response from addCount call: ', res);
-      });
-    }
 
   };
 });

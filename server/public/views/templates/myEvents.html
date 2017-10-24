@@ -1,8 +1,11 @@
 <p ng-repeat='eachEvent in MEC.myAttendingEvents.data'>
     {{ eachEvent }}
+    <br>
+    <md-button ng-click='MEC.removeAttend(eachEvent._id)'>Not attending</md-button>
 </p>
 
-<div>
+<!-- ONE CONTROLLER: get user's created events:  -->
+<!-- <div>
     <button ng-click='MEC.getMyEvents()'>Get My Events</button>
     <div ng-repeat='eachEvent in MEC.myEvents.data'>
         <p >
@@ -11,4 +14,4 @@
             <md-button ng-click='MEC.deleteEvent(eachEvent)'>Delete Event</md-button>
         </p>
     </div>
-</div>
+</div> -->
