@@ -37,7 +37,7 @@ myApp.config(function($routeProvider, $locationProvider) {
     })
     .when('/myEvents', {
       templateUrl: 'views/templates/myEvents.html',
-      controller: 'MyEventsController as MYC'
+      controller: 'MyEventsController as MEC'
     })
     .otherwise({
       redirectTo: 'home'

@@ -31,6 +31,8 @@ Two Collection data structure:
     - [x] Increment count with /events PUT req sending event _id as param.
     - [x] Clean up user schema.
     - [x] Click attend button add's event _id to user's "attend" array.
+- Add section to my Events containing user's "attending" events.
+    - [x] Users attending events displayed on DOM myEvents page. 
 
 
 

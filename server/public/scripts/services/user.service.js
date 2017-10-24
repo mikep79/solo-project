@@ -9,11 +9,15 @@ myApp.factory('UserService', function ($http, $location) {
   var myEventsObject = {
     data: []
   };
+  var myAttendingEvents = {
+    data: []
+  };
 
   return {
     userObject: userObject,
     eventsObject: eventsObject,
     myEventsObject: myEventsObject,
+    myAttendingEvents: myAttendingEvents,
 
     // called in client.js when /user url hit (login)
     getuser: function () {
@@ -51,28 +55,6 @@ myApp.factory('UserService', function ($http, $location) {
       });
     },
 
-    // get all events
-    // getEvents: function () {
-    //   $http.get('/events').then(function (res) {
-    //     // console.log('response from server: ', res);
-    //     var eventsArray = [];
-    //     // loop through each user
-    //     for (var i = 0; i < res.data.length; i++) {
-    //       // if statement to remove users with no "events" array
-    //       if (res.data[i].events) {
-    //         // loop through user[i]'s event objects
-    //         for (var j = 0; j < res.data[i].events.length; j++) {
-    //           var newItem = res.data[i].events[j];
-    //           // push each event into temporary eventsArray
-    //           eventsArray.push(newItem);
-    //         }
-    //       }
-    //     }
-    //     // populate asynchronous events obj.
-    //     eventsObject.data = eventsArray;
-    //   });
-    // },
-
     // post new event
     createEvent: function(eventObj){
       // console.log('createEvent service func called');
@@ -89,13 +71,21 @@ myApp.factory('UserService', function ($http, $location) {
       });
     },
 
-    // get My Events
-    getMyEvents: function(){
-      // console.log('myEvents POST req for my events');
-      $http.post('/myEvents', userObject).then(function(res){
-        console.log('Res from getMyEvents call: ', res);
-        myEventsObject.data = res.data[0].events;
-        console.log('myEvents Obj array : ', myEventsObject.data);        
+    // get user's created Events
+    // getMyEvents: function(){
+    //   // console.log('myEvents POST req for my events');
+    //   $http.post('/myEvents', userObject).then(function(res){
+    //     console.log('Res from getMyEvents call: ', res);
+    //     myEventsObject.data = res.data[0].events;
+    //     console.log('myEvents Obj array : ', myEventsObject.data);        
+    //   });
+    // },
+
+    // get attending events
+    getAttendingEvents: function(){
+      $http.get('/myEvents').then(function(res){
+        console.log('myEvents attending res: ', res);
+        myAttendingEvents.data = res.data;
       });
     },
 

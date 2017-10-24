@@ -3,6 +3,7 @@ myApp.controller('MyEventsController', function(UserService){
     var vm = this;
     vm.UserService = UserService;
     vm.myEvents = UserService.myEventsObject;
+    vm.myAttendingEvents = UserService.myAttendingEvents;
     // vm.eventsObj = UserService.eventsObject;   from other controller
 
     vm.getMyEvents = function(){
@@ -15,4 +16,9 @@ myApp.controller('MyEventsController', function(UserService){
         vm.UserService.deleteEvent(event);
     };
 
+    vm.getAttendingEvents = function(){
+        UserService.getAttendingEvents();
+    };
+
+    vm.getAttendingEvents();    
 });
