@@ -2,6 +2,7 @@ var router = require('express').Router();
 var dbEvents = require('../models/events.js');
 var dbUsers = require('../models/user.js');
 
+// get all events
 router.get('/', function (req, res) {
     // console.log('/events route hit');
     dbEvents.find({}, function (err, results) {

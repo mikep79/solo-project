@@ -35,6 +35,19 @@ Two Collection data structure:
     - [x] Users attending events displayed on DOM myEvents page. 
     - [x] Add function to remove an event from users attend array.
 
+Add filters for disability access and content.
+- [x] Create basic filter.
+- [ ] Add in other access needs.
+- [ ] Add filter for content (ng-if?).
+
+
+
+View events/My events:
+- display date/time correctly.
+- sort events chronologically on other pages as well as All Events.
+- filter out expired events.
+- link tables (foreign/reference key) so user can delete their own events.
+
 
 
 #errors:

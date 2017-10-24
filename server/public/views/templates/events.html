@@ -1,38 +1,40 @@
 <div ng-init='EC.getEvents()'>
     <p>Events Page!</p>
-    <button ng-click='EC.sortEvents()'>Sort Events</button>
-    <button ng-click='EC.getEvents()'>click</button>
+    <button ng-click='EC.filter("wheelchair")'>Wheelchair Filter</button>
+    <button ng-click='EC.filter("deafness")'>Hearing Filter</button>
     <!-- <md-button ng-click='EC.attend()'>
         <md-icon ng-if='EC.heartBorder' md-svg-src="svg/heart_border.svg"></md-icon>
         <md-icon ng-if='EC.heart' md-svg-src="svg/heart.svg"></md-icon>
     </md-button> -->
+
     <div ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" '>
-        <!-- add if needed to remove empty event arrays     -->
-        <!-- ng-if='eachEvent && eachEvent.length !== 0' -->
-        <ul>
-            <li>Name: {{ eachEvent.name }}</li>
-            <li>_id: {{ eachEvent._id }} </li>
-            <md-button ng-click='EC.addAttend(eachEvent._id)'>
-                <md-icon md-svg-src="svg/heart.svg"></md-icon>
-            </md-button>
-            <span>People Attending: {{ eachEvent.count }}</span>
-            <li>Description: {{ eachEvent.description }} </li>
-            <li>
-                Location:
-                <ul>
-                    <li ng-if='eachEvent.location'>
-                        {{ eachEvent.location.name }}
-                    </li>
-                    <li ng-if='eachEvent.location'>
-                        {{ eachEvent.location.street }}, {{ eachEvent.location.city }}, {{ eachEvent.location.state }} {{ eachEvent.location.zip
-                        }}
-                    </li>
-                </ul>
-            </li>
-            <li>Start time: {{ eachEvent.time_start }} </li>
-            <li ng-if='eachEvent.time_end'>End time: {{ eachEvent.time_end }} </li>
-            <li>Accessibility: {{ eachEvent.access_tags }} </li>
-            <li>Activity: {{ eachEvent.content_tags }} </li>
-        </ul>
+        <!-- hide event if event access_tag is false and user need is true -->
+        <div ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness'>
+            <ul>
+                <li>Name: {{ eachEvent.name }}</li>
+                <li>_id: {{ eachEvent._id }} </li>
+                <md-button ng-click='EC.addAttend(eachEvent._id)'>
+                    <md-icon md-svg-src="svg/heart.svg"></md-icon>
+                </md-button>
+                <span>People Attending: {{ eachEvent.count }}</span>
+                <li>Description: {{ eachEvent.description }} </li>
+                <li>
+                    Location:
+                    <ul>
+                        <li ng-if='eachEvent.location'>
+                            {{ eachEvent.location.name }}
+                        </li>
+                        <li ng-if='eachEvent.location'>
+                            {{ eachEvent.location.street }}, {{ eachEvent.location.city }}, {{ eachEvent.location.state }} {{ eachEvent.location.zip
+                            }}
+                        </li>
+                    </ul>
+                </li>
+                <li>Start time: {{ eachEvent.time_start }} </li>
+                <li ng-if='eachEvent.time_end'>End time: {{ eachEvent.time_end }} </li>
+                <li>Accessibility: {{ eachEvent.access_tags }} </li>
+                <li>Activity: {{ eachEvent.content_tags }} </li>
+            </ul>
+        </div>
     </div>
 </div>
