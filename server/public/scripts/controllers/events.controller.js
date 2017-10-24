@@ -5,7 +5,11 @@ myApp.controller('EventsController', function(UserService){
     vm.eventsObj = UserService.eventsObject;
     vm.userNeeds = {
         wheelchair: false,
-        deafness: false
+        deafness: false,
+        blind: false,
+        bathroom: false,
+        attendant: false,
+        sensory: false
     };
     
     // vm.heartBorder = true;
@@ -29,6 +33,8 @@ myApp.controller('EventsController', function(UserService){
 
     vm.filter = function(need){
         vm.userNeeds[need] = !vm.userNeeds[need];
+        console.log('userNeeds: ', vm.userNeeds);
+        
     };
 
 });

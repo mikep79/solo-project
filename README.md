@@ -37,7 +37,7 @@ Two Collection data structure:
 
 Add filters for disability access and content.
 - [x] Create basic filter.
-- [ ] Add in other access needs.
+- [x] Add in other access needs.
 - [ ] Add filter for content (ng-if?).
 
 

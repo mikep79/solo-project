@@ -2,6 +2,10 @@
     <p>Events Page!</p>
     <button ng-click='EC.filter("wheelchair")'>Wheelchair Filter</button>
     <button ng-click='EC.filter("deafness")'>Hearing Filter</button>
+    <button ng-click='EC.filter("blind")'>Vision Filter</button>
+    <button ng-click='EC.filter("bathroom")'>Access. Restroom Filter</button>
+    <button ng-click='EC.filter("attendant")'>Attendant Filter</button>
+    <button ng-click='EC.filter("sensory")'>Sensory Filter</button>
     <!-- <md-button ng-click='EC.attend()'>
         <md-icon ng-if='EC.heartBorder' md-svg-src="svg/heart_border.svg"></md-icon>
         <md-icon ng-if='EC.heart' md-svg-src="svg/heart.svg"></md-icon>
@@ -9,7 +13,7 @@
 
     <div ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" '>
         <!-- hide event if event access_tag is false and user need is true -->
-        <div ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness'>
+        <div ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory' >
             <ul>
                 <li>Name: {{ eachEvent.name }}</li>
                 <li>_id: {{ eachEvent._id }} </li>
