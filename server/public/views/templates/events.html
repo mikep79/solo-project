@@ -1,7 +1,13 @@
 <div ng-init='EC.getEvents()'>
     <p>Events Page!</p>
-    <button ng-click='EC.filter("wheelchair")'>Wheelchair Filter</button>
-    <button ng-click='EC.filter("deafness")'>Hearing Filter</button>
+    <md-button ng-click='EC.filter("wheelchair")'>
+        <md-icon ng-if='!EC.userNeeds.wheelchair' md-svg-src="svg/wheelchair.svg"></md-icon>
+        <md-icon ng-if='EC.userNeeds.wheelchair' md-svg-src="svg/wheelchair_white.svg"></md-icon>Ramp
+    </md-button>
+    <md-button ng-click='EC.filter("deafness")'>
+        <md-icon ng-if='!EC.userNeeds.deafness' md-svg-src="svg/hearing.svg"></md-icon>
+        <md-icon ng-if='EC.userNeeds.deafness' md-svg-src="svg/hearing_white.svg"></md-icon>Hearing
+    </md-button>
     <button ng-click='EC.filter("blind")'>Vision Filter</button>
     <button ng-click='EC.filter("bathroom")'>Access. Restroom Filter</button>
     <button ng-click='EC.filter("attendant")'>Attendant Filter</button>
@@ -16,7 +22,8 @@
     <button ng-click='EC.filter("shopping")'>Shopping</button>
     <button ng-click='EC.filter("artsAndCrafts")'>Arts and Crafts</button>
     <button ng-click='EC.filter("danceAndMusic")'>Dance and Music</button>
-    <button ng-click='EC.filter("partyAndHoliday")'>Party and Holiday</button>
+    <md-button ng-click='EC.filter("partyAndHoliday")'>
+        <md-icon md-svg-src="svg/cake.svg"></md-icon>Party and Holiday</md-button>
     <!-- <md-button ng-click='EC.attend()'>
         <md-icon ng-if='EC.heartBorder' md-svg-src="svg/heart_border.svg"></md-icon>
         <md-icon ng-if='EC.heart' md-svg-src="svg/heart.svg"></md-icon>

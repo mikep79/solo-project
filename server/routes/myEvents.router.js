@@ -3,35 +3,40 @@ var dbUsers = require('../models/user.js');
 var dbEvents = require('../models/events.js');
 
 // get user's attending events
-router.get('/', function(req, res){
-    console.log('Create route hit with req username: ', req.user.username);
-    // was using username from body: req.body.userName
-    dbUsers.find({username: req.user.username }, {attend: 1, _id: 0 }, function(err, result){
-        if (err){
+router.get('/', function (req, res) {
+    // console.log('Create route hit with req username: ', req.user.username);
+    dbUsers.find({ username: req.user.username }, { attend: 1, _id: 0 }, function (err, result) {
+        if (err) {
             console.log('get myEvents GET error: ', err);
             res.sendStatus(500);
         } else {
             // push results to array that mongo can convert to ObjectIds
             var resultArray = result[0].attend.split(",");
             // console.log('resultArray: ', resultArray);
-            // find events matching array of _ids. Duplicates filtered.
-            dbEvents.find( { _id: { $in: resultArray } }, function(error, filterResults){
-                if (error){
-                    console.log('myEvents filter error: ', error);
-                    res.sendStatus(500);
-                } else {
-                    // console.log('results array:  ', result);
-                    // console.log('filter results: ', filterResults);
-                    res.send(filterResults);
-                }
-            });
+            // if no events in attending array, send empty array back and halt find query.
+            if (resultArray == '') {
+                console.log('No events in attending array.');
+                res.send(resultArray);
+            } else {
+                // find events matching array of _ids. Duplicates filtered.
+                dbEvents.find({ _id: { $in: resultArray } }, function (error, filterResults) {
+                    if (error) {
+                        console.log('myEvents filter error: ', error);
+                        res.sendStatus(500);
+                    } else {
+                        // console.log('results array:  ', result);
+                        // console.log('filter results: ', filterResults);
+                        res.send(filterResults);
+                    }
+                });
+            }
         }
     });
 });
 
 // remove event from user's attending events array
 router.put('/:id', function (req, res) {
-    console.log('/myEvents route req.params: ', req.params);
+    // console.log('/myEvents route req.params: ', req.params);
     // check if user or guest. User only: 
     if (req.user !== undefined) {
         console.log('/myEvents route username: ', req.user.username);
