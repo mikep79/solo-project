@@ -58,15 +58,12 @@ myApp.factory('UserService', function ($http, $location) {
     // post new event
     createEvent: function(eventObj){
       // console.log('createEvent service func called');
-      var eventObj = {
-        // only add event object for now
-        // username: userObject.userName,
+      var createEventObj = {
         events: eventObj
       };
-      // $http.put('/create', eventObj).then(function (res){
-      //   // console.log('PUT response from server: ', res);
-      // });
-      $http.post('/create', eventObj).then(function (res){
+      console.log('service createEventObj', createEventObj);
+      
+      $http.post('/create', createEventObj).then(function (res){
         console.log('POST response from server: ', res);
       });
     },

@@ -1,4 +1,4 @@
-myApp.controller('EventsController', function(UserService){
+myApp.controller('EventsController', function (UserService) {
     // console.log('EventsController loaded');
     var vm = this;
     vm.UserService = UserService;
@@ -9,9 +9,10 @@ myApp.controller('EventsController', function(UserService){
         blind: false,
         bathroom: false,
         attendant: false,
-        sensory: false
+        sensory: false,
+        food: false
     };
-    
+
     // vm.heartBorder = true;
     // vm.heart = false;
     // vm.attend = function(){
@@ -20,21 +21,21 @@ myApp.controller('EventsController', function(UserService){
     //     console.log('heart and heartBorder: ', vm.heart, vm.heartBorder);
     // };
 
-    vm.addAttend = function(eventId){
+    vm.addAttend = function (eventId) {
         // console.log('event obj: ', eventId);
         UserService.addAttend(eventId);
         vm.getEvents();
     };
 
-    vm.getEvents = function(){
+    vm.getEvents = function () {
         UserService.getEvents();
         console.log(vm.eventsObj);
     };
 
-    vm.filter = function(need){
+    vm.filter = function (need) {
+        // change need from true to false, or false to true
         vm.userNeeds[need] = !vm.userNeeds[need];
         console.log('userNeeds: ', vm.userNeeds);
-        
     };
 
 });

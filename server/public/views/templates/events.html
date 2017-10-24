@@ -6,14 +6,25 @@
     <button ng-click='EC.filter("bathroom")'>Access. Restroom Filter</button>
     <button ng-click='EC.filter("attendant")'>Attendant Filter</button>
     <button ng-click='EC.filter("sensory")'>Sensory Filter</button>
+    <br>
+    <button ng-click='EC.filter("games")'>Games</button>
+    <button ng-click='EC.filter("animals")'>Animals</button>
+    <button ng-click='EC.filter("food")'>Food</button>
+    <button ng-click='EC.filter("sports")'>Sports</button>
+    <button ng-click='EC.filter("nature")'>Nature</button>
+    <button ng-click='EC.filter("movies")'>Movies</button>
+    <button ng-click='EC.filter("shopping")'>Shopping</button>
+    <button ng-click='EC.filter("artsAndCrafts")'>Arts and Crafts</button>
+    <button ng-click='EC.filter("danceAndMusic")'>Dance and Music</button>
+    <button ng-click='EC.filter("partyAndHoliday")'>Party and Holiday</button>
     <!-- <md-button ng-click='EC.attend()'>
         <md-icon ng-if='EC.heartBorder' md-svg-src="svg/heart_border.svg"></md-icon>
         <md-icon ng-if='EC.heart' md-svg-src="svg/heart.svg"></md-icon>
     </md-button> -->
 
     <div ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" '>
-        <!-- hide event if event access_tag is false and user need is true -->
-        <div ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory' >
+        <!-- hide event if event access_tag/content_tag is false and user need is true -->
+        <div ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory || EC.userContent.displayAll || !eachEvent.content_tags.games && EC.userNeeds.games || !eachEvent.content_tags.animals && EC.userNeeds.animals || !eachEvent.content_tags.food && EC.userNeeds.food || !eachEvent.content_tags.sports && EC.userNeeds.sports || !eachEvent.content_tags.nature && EC.userNeeds.nature || !eachEvent.content_tags.movies && EC.userNeeds.movies || !eachEvent.content_tags.shopping && EC.userNeeds.shopping || !eachEvent.content_tags.artsAndCrafts && EC.userNeeds.artsAndCrafts || !eachEvent.content_tags.danceAndMusic && EC.userNeeds.danceAndMusic || !eachEvent.content_tags.partyAndHoliday && EC.userNeeds.partyAndHoliday'>
             <ul>
                 <li>Name: {{ eachEvent.name }}</li>
                 <li>_id: {{ eachEvent._id }} </li>

@@ -78,15 +78,60 @@
     
     <md-input-container>
       <label>Activity</label>
-      <md-select ng-model="CC.contentTagsIn">
-        <md-option ng-repeat="eachActivity in CC.content" ng-value="eachActivity">
-          {{ eachActivity }}
+      <md-select ng-model="CC.contentTagsInValue">
+        <md-option ng-repeat="eachActivity in CC.content" ng-value="eachActivity.tagIn">
+          {{ eachActivity.text }}
         </md-option>
       </md-select>
     </md-input-container>
     <md-button ng-click='CC.grabEvent()'>Submit New Event</md-button>
   </form>
 
+  <!-- <md-select ng-model="CC.contentTagsInValue">
+      <md-option ng-value="games">
+        Games
+      </md-option>
+      <md-option ng-value="animals">
+        Animals
+      </md-option>
+      <md-option ng-value="food">
+        Food
+      </md-option>
+      <md-option ng-value="sports">
+        Sports
+      </md-option>
+      <md-option ng-value="nature">
+        Nature
+      </md-option>
+      <md-option ng-value="movies">
+        Movies
+      </md-option>
+      <md-option ng-value="shopping">
+        Shopping
+      </md-option>
+      <md-option ng-value="artsAndCrafts">
+        Arts and Crafts
+      </md-option>
+      <md-option ng-value="danceAndMusic">
+        Dance and Music
+      </md-option>
+      <md-option ng-value="partyAndHoliday">
+        Party and Holiday
+      </md-option> -->
+
+  <!-- ['Games', 'Animals', 'Food', 'Sports', 'Nature', 'Movies', 'Shopping', 'Arts and Crafts', 'Dance and Music', 'Party and Holiday']; -->
+  <!-- vm.contentTagsIn = {
+    games: false,
+    animals: false,
+    food: false,
+    sports: false,
+    nature: false,
+    movies: false,
+    shopping: false,
+    artsAndCrafts: false,
+    danceAndMusic: false,
+    partyAndHoliday: false,
+  }; -->
 
   <!-- <p>2014-01-09T16:00:00.000Z</p> -->
 

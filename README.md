@@ -38,7 +38,7 @@ Two Collection data structure:
 Add filters for disability access and content.
 - [x] Create basic filter.
 - [x] Add in other access needs.
-- [ ] Add filter for content (ng-if?).
+- [x] Add filter for content.
 
 
 
@@ -55,6 +55,7 @@ My Events page:
 - When creating event, allows duplicate events to be created. When deleting, will delete both events.
 View Events page:
 - when user click attend button twice, adds duplicate item to array (solution: make Unique part of attend array schema?)
+- If user selects multiple content_tags, will only show events that have BOTH those tags (ie. no events.)
 
 
 #Notes
