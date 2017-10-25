@@ -45,7 +45,8 @@ Styling:
 - [x] Added icons to event tags.
 - [x] Use only header for each page.
 - [x] Date/time display correctly. MyEvents load chronologically.
-- [ ] Display format for events. Sidebar and content?
+- [x] Display format for events. Sidebar and content. Like functionality improved.
+- [ ] Display format for myEvents.
 - [ ] Put access/content tags selectors in collapsable boxes.
 - [ ] Responsive adjustment using container.
 
@@ -71,8 +72,12 @@ View events/My events:
 My Events page: 
 - When creating event, allows duplicate events to be created. When deleting, will delete both events.
 View Events page:
+- line 110: <img ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+    This line causes can't find .png error for unknown reason.
 - when user click attend button twice, adds duplicate item to array (solution: make Unique part of attend array schema?)
 - If user selects multiple content_tags, will only show events that have BOTH those tags (ie. no events.)
+- Set minimum height of event pages/sidebar so clicking tags doesn't re-adjust view.
+- If no events listed after filters, show "sorry, no events matching selection" message.
 
 #Notes
 - filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):

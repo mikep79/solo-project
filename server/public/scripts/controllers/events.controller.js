@@ -22,18 +22,24 @@ myApp.controller('EventsController', function (UserService) {
         partyAndHoliday: false
     };
 
-    // vm.heartBorder = true;
-    // vm.heart = false;
-    // vm.attend = function(){
-    //     vm.heart = !vm.heart;
-    //     vm.heartBorder = !vm.heartBorder;
-    //     console.log('heart and heartBorder: ', vm.heart, vm.heartBorder);
-    // };
-
     vm.addAttend = function (eventId) {
         // console.log('event obj: ', eventId);
+        vm.eventContent.attending = true;
+        // decrement item's display count
+        vm.eventContent.count++;
+        console.log('vm.eventContent.attending should be TRUE ', vm.eventContent.attending);
         UserService.addAttend(eventId);
-        vm.getEvents();
+        // vm.getEvents();
+    };
+
+    // untested!
+    vm.removeAttend = function(eventId){
+        // console.log('eventId: ', eventId);
+        vm.eventContent.attending = false;
+        // decrement item's display count
+        vm.eventContent.count--;
+        console.log('vm.eventContent.attending should be FALSE ', vm.eventContent.attending);
+        UserService.removeAttend(eventId);
     };
 
     vm.getEvents = function () {
@@ -45,6 +51,11 @@ myApp.controller('EventsController', function (UserService) {
         // change need from true to false, or false to true
         vm.userNeeds[need] = !vm.userNeeds[need];
         console.log('userNeeds: ', vm.userNeeds);
+    };
+
+    vm.contentDisplay = function(event){
+        console.log('event: ', event);
+        vm.eventContent = event;
     };
 
 });

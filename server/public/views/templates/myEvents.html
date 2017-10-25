@@ -30,10 +30,10 @@
                 </ul>
             </li>
             <li>Date: {{ eachEvent.time_start | date: "longDate"}}</li>
-            <li>Start time: {{ eachEvent.time_start | date: "shortTime"}} </li>
-            <li>End time: {{ eachEvent.time_start | date: "shortTime"}} </li>
+            <li>Time: {{ eachEvent.time_start | date: "h:mm"}} - {{ eachEvent.time_end | date: "shortTime"}}</li>
             <li>Accessibility: {{ eachEvent.access_tags }} </li>
             <li>Activity: {{ eachEvent.content_tags }} </li>
         </ul>
+        <md-button ng-click='MEC.removeAttend(eachEvent._id)'>Not attending</md-button>
     </div>
 </div>

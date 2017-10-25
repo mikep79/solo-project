@@ -2,6 +2,10 @@ body {
   background-color: rgb(177, 174, 169);
 }
 
+#eventContent {
+  margin-left: 20px;
+}
+
 /* body, html {
   margin: 0;
   padding: 0;
