@@ -10,7 +10,16 @@ myApp.controller('EventsController', function (UserService) {
         bathroom: false,
         attendant: false,
         sensory: false,
-        food: false
+        games: false,
+        animals: false,
+        food: false,
+        sports: false,
+        nature: false,
+        movies: false,
+        shopping: false,
+        artsAndCrafts: false,
+        danceAndMusic: false,
+        partyAndHoliday: false
     };
 
     // vm.heartBorder = true;

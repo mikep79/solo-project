@@ -42,7 +42,7 @@ Add filters for disability access and content.
 - [x] Fixed myEvents page refresh error when no items in attending array.
 
 Styling: 
-- [ ] Add md-buttons and icons to find events tags.
+- [x] Added icons to event tags.
 
 
 
@@ -60,7 +60,6 @@ My Events page:
 View Events page:
 - when user click attend button twice, adds duplicate item to array (solution: make Unique part of attend array schema?)
 - If user selects multiple content_tags, will only show events that have BOTH those tags (ie. no events.)
-- MyEvents - If only one event, will stay on page after clicking 'not attending' - 500 error. Have to refresh page for it to go away. Happening because page doesn't like calling getAttendindEvents when nothing in array.
 
 #Notes
 - filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):
