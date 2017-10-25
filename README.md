@@ -43,6 +43,19 @@ Add filters for disability access and content.
 
 Styling: 
 - [x] Added icons to event tags.
+- [x] Use only header for each page.
+- [ ] Date/time display correctly. MyEvents load chronologically.
+- [ ] Display format for events. Sidebar and content?
+- [ ] Put access/content tags selectors in collapsable boxes.
+- [ ] Responsive adjustment using container.
+
+Additional functionality:
+- [ ] Do not allow user to submit create page without completing all fields.
+- [ ] Redirect user to different page when submitting event.
+- [ ] Filter expired events using date function (create current time variable on controller to compare against events).
+
+Weekend:
+- [ ] About page.
 
 
 
@@ -108,10 +121,10 @@ Add basic styling. Finish logo.
 Refine styling and practice deploying to Heroku with database. Bug fixes.
 10-24 Tues
 
-Testing with screen-reader. Position items on page according to keyboard -driven logic. Bug fixes, testing, stretch goals.
+Position items on page according to keyboard -driven logic. Research: logo and name. Heroku deployment
 10-25 Wed
 
-Bug fixes, testing, stretch goals.
+Testing with screen-reader. Add ng-aria stuff. Decide on logo and name. Deploy to Heroku?
 10-26 Thurs
 
 Practice presentation. Deploy to Heroku.
