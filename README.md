@@ -44,7 +44,7 @@ Add filters for disability access and content.
 Styling: 
 - [x] Added icons to event tags.
 - [x] Use only header for each page.
-- [ ] Date/time display correctly. MyEvents load chronologically.
+- [x] Date/time display correctly. MyEvents load chronologically.
 - [ ] Display format for events. Sidebar and content?
 - [ ] Put access/content tags selectors in collapsable boxes.
 - [ ] Responsive adjustment using container.
