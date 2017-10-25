@@ -32,7 +32,6 @@ myApp.controller('EventsController', function (UserService) {
         // vm.getEvents();
     };
 
-    // untested!
     vm.removeAttend = function(eventId){
         // console.log('eventId: ', eventId);
         vm.eventContent.attending = false;

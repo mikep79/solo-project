@@ -1,8 +1,8 @@
-<div ng-init='EC.getEvents()'>
+<div id="eventsView" ng-init='EC.getEvents()'>
     <p>Events Page!</p>
     <section>
         <div>
-            Select Accessibility Needs:
+            <h3>Select Accessibility Needs:</h3>
             <br>
             <md-button ng-click='EC.filter("wheelchair")'>
                 <img ng-if='!EC.userNeeds.wheelchair' src="png/wheelchair.png"></img>
@@ -41,7 +41,7 @@
     <br>
     <section>
         <div>
-            Select Activity:
+            <h3>Select Activity:</h3>
             <br>
             <md-button ng-click='EC.filter("games")'>
                 <img ng-if='!EC.userNeeds.games' src="png/games.png"></img>
@@ -94,15 +94,14 @@
         </div>
     </section>
 
+    <hr>
+
     <section>
         <div class='container' layout='row' flex>
             <md-sidenav md-is-locked-open="true" class='md-whiteframe-10dp'>
                 <md-list>
                     <md-list-item>
                         <h2>Current Events:</h2>
-                        <md-button aria-label="button">
-                            <!-- <md-icon md-svg-src='svg/beach.svg'>thing</md-icon> -->
-                        </md-button>
                     </md-list-item>
                     <md-list-item ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" ' ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory || EC.userContent.displayAll || !eachEvent.content_tags.games && EC.userNeeds.games || !eachEvent.content_tags.animals && EC.userNeeds.animals || !eachEvent.content_tags.food && EC.userNeeds.food || !eachEvent.content_tags.sports && EC.userNeeds.sports || !eachEvent.content_tags.nature && EC.userNeeds.nature || !eachEvent.content_tags.movies && EC.userNeeds.movies || !eachEvent.content_tags.shopping && EC.userNeeds.shopping || !eachEvent.content_tags.artsAndCrafts && EC.userNeeds.artsAndCrafts || !eachEvent.content_tags.danceAndMusic && EC.userNeeds.danceAndMusic || !eachEvent.content_tags.partyAndHoliday && EC.userNeeds.partyAndHoliday'>
                         <md-button aria-label='{{ eachEvent.name }}' ng-click='EC.contentDisplay(eachEvent)'>
@@ -121,8 +120,9 @@
 
             <md-content ng-if='EC.eventContent' id="content" flex>
                 <div id="eventContent">
+                    <img ng-repeat='(tag, value) in EC.eventContent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+                    <img height='30em' ng-repeat='(tag, value) in EC.eventContent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
                     <h3>{{ EC.eventContent.name }}</h3>
-
                     <p>
                         {{ EC.eventContent.description }}
                     </p>
@@ -153,11 +153,12 @@
 
         </div>
     </section>
+    <hr>
+</div>
 
-
-    <section>
+<!-- original display: -->
+<!-- <section>
         <div ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" '>
-            <!-- hide event if event access_tag/content_tag is false and user need is true -->
             <div ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory || EC.userContent.displayAll || !eachEvent.content_tags.games && EC.userNeeds.games || !eachEvent.content_tags.animals && EC.userNeeds.animals || !eachEvent.content_tags.food && EC.userNeeds.food || !eachEvent.content_tags.sports && EC.userNeeds.sports || !eachEvent.content_tags.nature && EC.userNeeds.nature || !eachEvent.content_tags.movies && EC.userNeeds.movies || !eachEvent.content_tags.shopping && EC.userNeeds.shopping || !eachEvent.content_tags.artsAndCrafts && EC.userNeeds.artsAndCrafts || !eachEvent.content_tags.danceAndMusic && EC.userNeeds.danceAndMusic || !eachEvent.content_tags.partyAndHoliday && EC.userNeeds.partyAndHoliday'>
                 <ul>
                     <li>Name: {{ eachEvent.name }}</li>
@@ -186,5 +187,4 @@
                 </ul>
             </div>
         </div>
-</div>
-</section>
+    </section> -->

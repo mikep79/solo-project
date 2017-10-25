@@ -46,9 +46,11 @@ Styling:
 - [x] Use only header for each page.
 - [x] Date/time display correctly. MyEvents load chronologically.
 - [x] Display format for events. Sidebar and content. Like functionality improved.
+- [x] Add access tags to view events page content bar.
 - [ ] Display format for myEvents page.
 - [ ] Put access/content tags selectors in collapsable boxes.
 - [ ] Responsive adjustment using container.
+- [ ] Added event 
 
 Additional functionality:
 - [ ] Do not allow user to submit create page without completing all fields.
@@ -73,7 +75,7 @@ My Events page:
 - When creating event, allows duplicate events to be created. When deleting, will delete both events.
 View Events page:
 - line 110: <img ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
-    This line causes can't find .png error for unknown reason.
+    This line causes can't find .png error for unknown reason. Try creating function in controller that builds src string.
 - when user click attend button twice, adds duplicate item to array (solution: make Unique part of attend array schema?)
 - If user selects multiple content_tags, will only show events that have BOTH those tags (ie. no events.)
 - Set minimum height of event pages/sidebar so clicking tags doesn't re-adjust view.
