@@ -46,7 +46,7 @@ Styling:
 - [x] Use only header for each page.
 - [x] Date/time display correctly. MyEvents load chronologically.
 - [x] Display format for events. Sidebar and content. Like functionality improved.
-- [ ] Display format for myEvents.
+- [ ] Display format for myEvents page.
 - [ ] Put access/content tags selectors in collapsable boxes.
 - [ ] Responsive adjustment using container.
 
