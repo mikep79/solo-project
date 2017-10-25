@@ -6,8 +6,36 @@
     </p>
 </div> -->
 
-<div ng-repeat='eachEvent in MEC.myAttendingEvents.data | orderBy: "time_start" '>
-    <!-- hide event if event access_tag/content_tag is false and user need is true -->
+<div id="eventContent" ng-repeat='eachEvent in MEC.myAttendingEvents.data | orderBy: "time_start" '>
+    <img ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+    <img height='30em' ng-repeat='(tag, value) in eachEvent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+    <h3>{{ eachEvent.name }}</h3>
+    <p>
+        {{ eachEvent.description }}
+    </p>
+    <p>
+        {{ eachEvent.time_start | date: "longDate"}}
+    </p>
+    <p>
+        {{ eachEvent.time_start | date: "h:mm"}} - {{ eachEvent.time_end | date: "shortTime"}}
+    </p>
+    <md-button ng-click='MEC.removeAttend(eachEvent._id)'>Not attending</md-button>
+    <span>People Attending: {{ eachEvent.count }}</span>
+    <ul> Happening At:
+        <li>
+            {{ eachEvent.location.name }}
+        </li>
+        <li>
+            {{ eachEvent.location.street }}, {{ eachEvent.location.city }}, {{ eachEvent.location.state }} {{ eachEvent.location.zip
+            }}
+        </li>
+    </ul>
+    <hr>
+</div>
+
+<!-- original display -->
+<!-- <div ng-repeat='eachEvent in MEC.myAttendingEvents.data | orderBy: "time_start" '>
+    
     <div ng-hide='!eachEvent.access_tags.wheelchair && MEC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && MEC.userNeeds.deafness || !eachEvent.access_tags.blind && MEC.userNeeds.blind || !eachEvent.access_tags.bathroom && MEC.userNeeds.bathroom || !eachEvent.access_tags.attendant && MEC.userNeeds.attendant || !eachEvent.access_tags.sensory && MEC.userNeeds.sensory || MEC.userContent.displayAll || !eachEvent.content_tags.games && MEC.userNeeds.games || !eachEvent.content_tags.animals && MEC.userNeeds.animals || !eachEvent.content_tags.food && MEC.userNeeds.food || !eachEvent.content_tags.sports && MEC.userNeeds.sports || !eachEvent.content_tags.nature && MEC.userNeeds.nature || !eachEvent.content_tags.movies && MEC.userNeeds.movies || !eachEvent.content_tags.shopping && MEC.userNeeds.shopping || !eachEvent.content_tags.artsAndCrafts && MEC.userNeeds.artsAndCrafts || !eachEvent.content_tags.danceAndMusic && MEC.userNeeds.danceAndMusic || !eachEvent.content_tags.partyAndHoliday && MEC.userNeeds.partyAndHoliday'>
         <ul>
             <li>Name: {{ eachEvent.name }}</li>
@@ -36,4 +64,4 @@
         </ul>
         <md-button ng-click='MEC.removeAttend(eachEvent._id)'>Not attending</md-button>
     </div>
-</div>
+</div> -->

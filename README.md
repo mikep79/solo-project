@@ -47,7 +47,7 @@ Styling:
 - [x] Date/time display correctly. MyEvents load chronologically.
 - [x] Display format for events. Sidebar and content. Like functionality improved.
 - [x] Add access tags to view events page content bar.
-- [ ] Display format for myEvents page.
+- [x] Display format for myEvents page.
 - [ ] Put access/content tags selectors in collapsable boxes.
 - [ ] Responsive adjustment using container.
 - [ ] Added event 
