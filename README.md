@@ -49,6 +49,7 @@ Styling:
 - [x] Add access tags to view events page content bar.
 - [x] Display format for myEvents page.
 - [x] Changed View Events pg format to collapse filter tags.
+- [x] Added logo and title navbar.
 - [ ] Responsive adjustment using container.
 - [ ] Change heart icon in events page to solid white/solid black (downloaded), so viewer associates white = can click on, blue = background.
 
