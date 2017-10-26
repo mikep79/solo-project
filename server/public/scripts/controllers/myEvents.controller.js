@@ -1,4 +1,4 @@
-myApp.controller('MyEventsController', function(UserService){
+myApp.controller('MyEventsController', function (UserService) {
     // console.log('MyEventsController loaded');
     var vm = this;
     vm.UserService = UserService;
@@ -13,9 +13,10 @@ myApp.controller('MyEventsController', function(UserService){
     //     console.log('Myevents: ', vm.myEvents);
     // };
 
-    vm.removeAttend = function(eventId){
+    vm.removeAttend = function (eventId) {
         console.log('eventId: ', eventId);
         UserService.removeAttend(eventId);
+        swal('Attendance removed from event.');
         vm.getAttendingEvents();
     };
 
@@ -26,7 +27,7 @@ myApp.controller('MyEventsController', function(UserService){
     // };
 
     // get all events marked 'attending'
-    vm.getAttendingEvents = function(){
+    vm.getAttendingEvents = function () {
         UserService.getAttendingEvents();
     };
 

@@ -58,7 +58,9 @@ myApp.controller('CreateController', function (UserService) {
     }
     console.log('vm.eventObj: ', vm.eventObj);
     UserService.createEvent(vm.eventObj);
-  }
+    // sweet alert
+    swal('Event added!');
+  };
 
   // using buttons to toggle access tags:
   // vm.toggleAccessTag = function(tag){

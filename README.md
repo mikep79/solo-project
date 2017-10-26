@@ -56,7 +56,7 @@ Styling:
 - [x] Change heart icon in events page to solid white/solid black.
 
 Additional functionality:
-- [ ] Add suite alert when event created. (or dialog)
+- [x] Add sweet alert when event created, attendance removed, and user registered.
 - [x] Do not allow user to submit create page without completing all fields.
 - [x] Redirect user to different page when submitting event.
 - [ ] Filter expired events using date function (create current time variable on controller to compare against events).
