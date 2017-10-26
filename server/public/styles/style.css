@@ -1,5 +1,13 @@
 body {
-  background-color: rgb(177, 174, 169);
+  background-color: lightblue;
+}
+
+main {
+  background-color: lightblue;
+}
+
+.container {
+  padding: 20px;
 }
 
 .nav .container h1 {
@@ -49,6 +57,10 @@ body {
 /* entire events view page */
 #eventsView {
   min-height: 600px;
+}
+
+#btnWhite:hover {
+  background-color: rgb(155, 78, 47);
 }
 
 /* body, html {

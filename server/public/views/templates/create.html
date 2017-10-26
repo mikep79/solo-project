@@ -1,8 +1,5 @@
-<!-- <div ng-include="'views/partials/nav.html'"></div> -->
-<div class="container">
-  <p>
-    In Create Event page
-  </p>
+<div class="container lightblue">
+  <h2>Enter details to add an event</h2>
   <form>
     <md-input-container>
       <label>Name</label>
@@ -44,7 +41,16 @@
       <label>End Time</label>
       <input type='datetime-local' ng-model='CC.timeEndIn'>
     </md-input-container>
-
+    <div>
+      <md-input-container>
+        <label>Select Activity</label>
+        <md-select ng-model="CC.contentTagsInValue">
+          <md-option ng-repeat="eachActivity in CC.content" ng-value="eachActivity.tagIn">
+            {{ eachActivity.text }}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </div>
     <!-- Switches for accessibility -->
     <div layout='row'>
       <md-switch ng-model="CC.accessTagsIn.wheelchair" aria-label="Wheelchair access" ng-true-value="true" ng-false-value="false"
@@ -75,16 +81,7 @@
         Sensory sensitive
       </md-switch>
     </div>
-    
-    <md-input-container>
-      <label>Activity</label>
-      <md-select ng-model="CC.contentTagsInValue">
-        <md-option ng-repeat="eachActivity in CC.content" ng-value="eachActivity.tagIn">
-          {{ eachActivity.text }}
-        </md-option>
-      </md-select>
-    </md-input-container>
-    <md-button href="#/user" ng-click='CC.grabEvent()'>Submit New Event</md-button>
+    <md-button class="md-raised" id="btnWhite" href="#/user" ng-click='CC.grabEvent()'>Create Event</md-button>
   </form>
 
   <!-- <md-select ng-model="CC.contentTagsInValue">
