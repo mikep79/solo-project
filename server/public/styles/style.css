@@ -34,9 +34,22 @@ main {
   height: 140px; 
 }
 
-/* text within event content view */
+/* div containing sidenav */
+#sidenav {
+  min-width: 200px;
+}
+
+/* text box within md-content */
 #eventContent {
   margin: 20px;
+  min-width: 350px;
+  max-width: 500px;
+}
+
+/* divs containing filter icons */
+.filterIcons {
+  min-width: 300px;
+  max-width: 750px;
 }
 
 .tabDisplay {

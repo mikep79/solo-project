@@ -64,8 +64,6 @@ Additional functionality:
 Weekend:
 - [ ] About page.
 
-
-
 View events/My events:
 - display date/time correctly.
 - sort events chronologically on other pages as well as All Events.
