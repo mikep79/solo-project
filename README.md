@@ -57,7 +57,7 @@ Styling:
 
 Additional functionality:
 - [ ] Add suite alert when event created. (or dialog)
-- [ ] Do not allow user to submit create page without completing all fields.
+- [x] Do not allow user to submit create page without completing all fields.
 - [x] Redirect user to different page when submitting event.
 - [ ] Filter expired events using date function (create current time variable on controller to compare against events).
 
@@ -82,6 +82,8 @@ View Events page:
 - If user selects multiple content_tags, will only show events that have BOTH those tags (ie. no events.)
 - Set minimum height of event pages/sidebar so clicking tags doesn't re-adjust view.
 - If no events listed after filters, show "sorry, no events matching selection" message.
+Create Event page:
+- If user inputs field, then deletes it, event will still be created without alert.
 
 #Notes
 - filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):
