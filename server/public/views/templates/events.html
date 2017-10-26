@@ -30,7 +30,7 @@
                             <md-content ng-if='EC.eventContent' class='lightblue' flex>
                                 <div id="eventContent">
                                     <img ng-repeat='(tag, value) in EC.eventContent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
-                                    <img height='30em' ng-repeat='(tag, value) in EC.eventContent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+                                    <img height='30em' class="contentAccessIcons" ng-repeat='(tag, value) in EC.eventContent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
                                     <h3>{{ EC.eventContent.name }}</h3>
                                     <p>
                                         {{ EC.eventContent.description }}
@@ -41,13 +41,15 @@
                                     <p>
                                         {{ EC.eventContent.time_start | date: "h:mm"}} - {{ EC.eventContent.time_end | date: "shortTime"}}
                                     </p>
-                                    <md-button ng-if='!EC.eventContent.attending' ng-click='EC.addAttend(EC.eventContent._id)'>
-                                        <md-icon md-svg-src="svg/heart_border.svg"></md-icon>
-                                    </md-button>
-                                    <md-button ng-if='EC.eventContent.attending' ng-click='EC.removeAttend(EC.eventContent._id)'>
-                                        <md-icon md-svg-src="svg/heart.svg"></md-icon>
-                                    </md-button>
-                                    <span>People Attending: {{ EC.eventContent.count }}</span>
+                                    <div>Attend:
+                                        <md-button ng-if='!EC.eventContent.attending' ng-click='EC.addAttend(EC.eventContent._id)'>
+                                            <md-icon md-svg-src="svg/heart_border.svg"></md-icon>
+                                        </md-button>
+                                        <md-button ng-if='EC.eventContent.attending' ng-click='EC.removeAttend(EC.eventContent._id)'>
+                                            <md-icon md-svg-src="svg/heart.svg"></md-icon>
+                                        </md-button>
+                                        <span>People Attending: {{ EC.eventContent.count }}</span>
+                                    </div>
                                     <ul> Happening At:
                                         <li>
                                             {{ EC.eventContent.location.name }}

@@ -51,7 +51,7 @@ Styling:
 - [x] Changed View Events pg format to collapse filter tags.
 - [x] Added logo and title navbar.
 - [x] Finish basic styling for all pages.
-- [ ] Responsive adjustment using container.
+- [x] Responsive adjustment using container.
 - [ ] ng-aria, label.
 - [ ] Change heart icon in events page to solid white/solid black (downloaded), so viewer associates white = can click on, blue = background.
 

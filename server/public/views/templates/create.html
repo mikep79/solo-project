@@ -1,55 +1,58 @@
 <div class="container lightblue">
   <h2>Enter details to add an event</h2>
   <form>
-    <md-input-container>
-      <label>Name</label>
-      <input ng-model='CC.nameIn'>
-    </md-input-container>
-    <md-input-container>
-      <label>Description</label>
-      <input ng-model='CC.descriptionIn'>
-    </md-input-container>
-    <md-input-container>
-      <label>Place</label>
-      <input ng-model='CC.locNameIn'>
-    </md-input-container>
-    <md-input-container>
-      <label>Street</label>
-      <input ng-model='CC.streetIn'>
-    </md-input-container>
-    <md-input-container>
-      <label>City</label>
-      <input ng-model='CC.cityIn'>
-    </md-input-container>
-    <md-input-container>
-      <label>State</label>
-      <md-select ng-model="CC.stateIn">
-        <md-option ng-repeat="eachState in CC.states" ng-value="eachState">
-          {{eachState}}
-        </md-option>
-      </md-select>
-    </md-input-container>
-    <md-input-container>
-      <label>Zip</label>
-      <input ng-model='CC.zipIn'>
-    </md-input-container>
-    <md-input-container>
-      <label>Start Time</label>
-      <input type='datetime-local' ng-model='CC.timeStartIn'>
-    </md-input-container>
-    <md-input-container>
-      <label>End Time</label>
-      <input type='datetime-local' ng-model='CC.timeEndIn'>
-    </md-input-container>
-    <div>
+    <!-- inputs -->
+    <div class="md-whiteframe-10dp" id="createForm">
       <md-input-container>
-        <label>Select Activity</label>
-        <md-select ng-model="CC.contentTagsInValue">
-          <md-option ng-repeat="eachActivity in CC.content" ng-value="eachActivity.tagIn">
-            {{ eachActivity.text }}
+        <label>Event title</label>
+        <input ng-model='CC.nameIn'>
+      </md-input-container>
+      <md-input-container>
+        <label>Description</label>
+        <input ng-model='CC.descriptionIn'>
+      </md-input-container>
+      <md-input-container>
+        <label>Building or Location</label>
+        <input ng-model='CC.locNameIn'>
+      </md-input-container>
+      <md-input-container>
+        <label>Street</label>
+        <input ng-model='CC.streetIn'>
+      </md-input-container>
+      <md-input-container>
+        <label>City</label>
+        <input ng-model='CC.cityIn'>
+      </md-input-container>
+      <md-input-container>
+        <label>State</label>
+        <md-select ng-model="CC.stateIn">
+          <md-option ng-repeat="eachState in CC.states" ng-value="eachState">
+            {{eachState}}
           </md-option>
         </md-select>
       </md-input-container>
+      <md-input-container>
+        <label>Zip</label>
+        <input ng-model='CC.zipIn'>
+      </md-input-container>
+      <md-input-container>
+        <label>Start Time</label>
+        <input type='datetime-local' ng-model='CC.timeStartIn'>
+      </md-input-container>
+      <md-input-container>
+        <label>End Time</label>
+        <input type='datetime-local' ng-model='CC.timeEndIn'>
+      </md-input-container>
+      <div>
+        <md-input-container>
+          <label>Select Activity Type</label>
+          <md-select ng-model="CC.contentTagsInValue">
+            <md-option ng-repeat="eachActivity in CC.content" ng-value="eachActivity.tagIn">
+              {{ eachActivity.text }}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </div>
     </div>
     <!-- Switches for accessibility -->
     <div layout='row'>
@@ -81,7 +84,7 @@
         Sensory sensitive
       </md-switch>
     </div>
-    <md-button class="md-raised" id="btnWhite"  ng-click='CC.grabEvent()'>Create Event</md-button>
+    <md-button class="md-raised" id="btnWhite" ng-click='CC.grabEvent()'>Create Event</md-button>
     <!-- put back in -->
     <!-- href="#/user" -->
   </form>

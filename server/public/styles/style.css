@@ -52,12 +52,26 @@ main {
   max-width: 750px;
 }
 
+/* CREATE EVENTS PAGE */
+
+#createForm {
+  min-width: 400px;
+  max-width: 700px;
+}
+
+/* correct state and activity select alignment */
+md-select {
+  padding-bottom: 24px;
+}
+
+
 .tabDisplay {
   font-size: 25px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+/* COLORS */
 .lightblue {
   background-color: lightblue;
 }
@@ -74,6 +88,11 @@ main {
 
 #btnWhite:hover {
   background-color: rgb(155, 78, 47);
+}
+
+.contentAccessIcons {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 /* body, html {
