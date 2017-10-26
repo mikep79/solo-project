@@ -50,7 +50,7 @@ Styling:
 - [x] Display format for myEvents page.
 - [x] Changed View Events pg format to collapse filter tags.
 - [x] Added logo and title navbar.
-- [ ] Finish basic styling for all pages.
+- [x] Finish basic styling for all pages.
 - [ ] Responsive adjustment using container.
 - [ ] ng-aria, label.
 - [ ] Change heart icon in events page to solid white/solid black (downloaded), so viewer associates white = can click on, blue = background.
