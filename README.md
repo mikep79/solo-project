@@ -48,11 +48,12 @@ Styling:
 - [x] Display format for events. Sidebar and content. Like functionality improved.
 - [x] Add access tags to view events page content bar.
 - [x] Display format for myEvents page.
-- [ ] Put access/content tags selectors in collapsable boxes.
+- [x] Changed View Events pg format to collapse filter tags.
 - [ ] Responsive adjustment using container.
-- [ ] Added event 
+- [ ] Change heart icon in events page to solid white/solid black (downloaded), so viewer associates white = can click on, blue = background.
 
 Additional functionality:
+- [ ] Add suite alert when event created. (or dialog)
 - [ ] Do not allow user to submit create page without completing all fields.
 - [ ] Redirect user to different page when submitting event.
 - [ ] Filter expired events using date function (create current time variable on controller to compare against events).
@@ -147,7 +148,7 @@ Solo presentation.
 
 ### Stretch Goals
 
-- [ ] Add to myEvents page: list of events marked as "attending".
+- [x] Add to myEvents page: list of events marked as "attending".
 - [ ] Add slide show of sample events, or graphic elements on home page in place of description of app.
 - [ ] Add feature to allow users to delete events they have created. Two options: call delete function with icon placed next to User’s created events, or have separate “My Events” page containing only that user’s events.
 - [ ] Integrate Google Calendar API so users can add event to their own calendar.

@@ -1,7 +1,167 @@
-<div id="eventsView" ng-init='EC.getEvents()'>
-    <p>Events Page!</p>
+<div id="eventsView" class="lightblue" ng-init='EC.getEvents()'>
+
+    <div ng-cloak>
+        <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Events">
+                    <md-content class="md-padding lightblue">
+                        <div class='container' id="sidenav" layout='row' flex>
+                            <md-sidenav md-is-locked-open="true" class='md-whiteframe-10dp'>
+                                <md-list>
+                                    <md-list-item>
+                                        <h2>Current Events:</h2>
+                                    </md-list-item>
+                                    <hr>
+                                    <md-list-item ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" ' ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory || EC.userContent.displayAll || !eachEvent.content_tags.games && EC.userNeeds.games || !eachEvent.content_tags.animals && EC.userNeeds.animals || !eachEvent.content_tags.food && EC.userNeeds.food || !eachEvent.content_tags.sports && EC.userNeeds.sports || !eachEvent.content_tags.nature && EC.userNeeds.nature || !eachEvent.content_tags.movies && EC.userNeeds.movies || !eachEvent.content_tags.shopping && EC.userNeeds.shopping || !eachEvent.content_tags.artsAndCrafts && EC.userNeeds.artsAndCrafts || !eachEvent.content_tags.danceAndMusic && EC.userNeeds.danceAndMusic || !eachEvent.content_tags.partyAndHoliday && EC.userNeeds.partyAndHoliday'>
+                                        <md-button aria-label='{{ eachEvent.name }}' ng-click='EC.contentDisplay(eachEvent)'>
+                                            <!-- loop through content tags, display if value = true -->
+                                            <img ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+                                            <span> {{ eachEvent.time_start | date: "longDate"}}
+                                                <br>{{ eachEvent.name }}
+                                                <br>{{ eachEvent.time_start | date: "h:mm"}} - {{ eachEvent.time_end | date:
+                                                "shortTime"}}
+                                            </span>
+                                        </md-button>
+                                    </md-list-item>
+                                </md-list>
+                            </md-sidenav>
+                            <md-content ng-if='EC.eventContent' id="content" flex>
+                                <div id="eventContent">
+                                    <img ng-repeat='(tag, value) in EC.eventContent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+                                    <img height='30em' ng-repeat='(tag, value) in EC.eventContent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+                                    <h3>{{ EC.eventContent.name }}</h3>
+                                    <p>
+                                        {{ EC.eventContent.description }}
+                                    </p>
+                                    <p>
+                                        {{ EC.eventContent.time_start | date: "longDate"}}
+                                    </p>
+                                    <p>
+                                        {{ EC.eventContent.time_start | date: "h:mm"}} - {{ EC.eventContent.time_end | date: "shortTime"}}
+                                    </p>
+                                    <md-button ng-if='!EC.eventContent.attending' ng-click='EC.addAttend(EC.eventContent._id)'>
+                                        <md-icon md-svg-src="svg/heart_border.svg"></md-icon>
+                                    </md-button>
+                                    <md-button ng-if='EC.eventContent.attending' ng-click='EC.removeAttend(EC.eventContent._id)'>
+                                        <md-icon md-svg-src="svg/heart.svg"></md-icon>
+                                    </md-button>
+                                    <span>People Attending: {{ EC.eventContent.count }}</span>
+                                    <ul> Happening At:
+                                        <li>
+                                            {{ EC.eventContent.location.name }}
+                                        </li>
+                                        <li>
+                                            {{ EC.eventContent.location.street }}, {{ EC.eventContent.location.city }}, {{ EC.eventContent.location.state }} {{ EC.eventContent.location.zip
+                                            }}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </md-content>
+
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Accessiblity">
+                    <md-content class="md-padding lightblue">
+                        <h2 class="tabDisplay">Select All Accessibility Needs</h2>
+                        <p>Click on all accessibilities needed.</p>
+                        <div class='md-whiteframe-10dp'>
+                            <md-button ng-click='EC.filter("wheelchair")'>
+                                <img ng-if='!EC.userNeeds.wheelchair' src="png/wheelchair.png"></img>
+                                <img ng-if='EC.userNeeds.wheelchair' src="png/wheelchair2.png"></img>
+                                <br> Wheelchair
+                            </md-button>
+                            <md-button ng-click='EC.filter("deafness")'>
+                                <img ng-if='!EC.userNeeds.deafness' src="png/deafness.png"></img>
+                                <img ng-if='EC.userNeeds.deafness' src="png/deafness2.png"></img>
+                                <br> Hearing
+                            </md-button>
+                            <md-button ng-click='EC.filter("blind")'>
+                                <img ng-if='!EC.userNeeds.blind' src="png/blind.png"></img>
+                                <img ng-if='EC.userNeeds.blind' src="png/blind2.png"></img>
+                                <br> Vision
+                            </md-button>
+                            <md-button ng-click='EC.filter("bathroom")'>
+                                <img ng-if='!EC.userNeeds.bathroom' src="png/bathroom.png"></img>
+                                <img ng-if='EC.userNeeds.bathroom' src="png/bathroom2.png"></img>
+                                <br> Bathroom
+                            </md-button>
+                            <md-button ng-click='EC.filter("attendant")'>
+                                <img ng-if='!EC.userNeeds.attendant' src="png/attendant.png"></img>
+                                <img ng-if='EC.userNeeds.attendant' src="png/attendant2.png"></img>
+                                <br> Transportation
+                            </md-button>
+                            <md-button ng-click='EC.filter("sensory")'>
+                                <img ng-if='!EC.userNeeds.sensory' src="png/sensory.png"></img>
+                                <img ng-if='EC.userNeeds.sensory' src="png/sensory2.png"></img>
+                                <br> Sensory
+                            </md-button>
+                        </div>
+                    </md-content>
+                </md-tab>
+                <md-tab label="Activity">
+                    <md-content class="md-padding lightblue">
+                        <h2 class="tabDisplay">Select an Activity Type</h2>
+                        <p>Click on an icon to see all those activities.</p>
+                        <div class='md-whiteframe-10dp'>
+                            <md-button ng-click='EC.filter("games")'>
+                                <img ng-if='!EC.userNeeds.games' src="png/games.png"></img>
+                                <img ng-if='EC.userNeeds.games' src="png/games2.png"></img>
+                                <br> Games
+                            </md-button>
+                            <md-button ng-click='EC.filter("animals")'>
+                                <img ng-if='!EC.userNeeds.animals' src="png/animals.png"></img>
+                                <img ng-if='EC.userNeeds.animals' src="png/animals2.png"></img>
+                                <br> Animals
+                            </md-button>
+                            <md-button ng-click='EC.filter("food")'>
+                                <img ng-if='!EC.userNeeds.food' src="png/food.png"></img>
+                                <img ng-if='EC.userNeeds.food' src="png/food2.png"></img>
+                                <br> Food
+                            </md-button>
+                            <md-button ng-click='EC.filter("sports")'>
+                                <img ng-if='!EC.userNeeds.sports' src="png/sports.png"></img>
+                                <img ng-if='EC.userNeeds.sports' src="png/sports2.png"></img>
+                                <br> Sports
+                            </md-button>
+                            <md-button ng-click='EC.filter("nature")'>
+                                <img ng-if='!EC.userNeeds.nature' src="png/nature.png"></img>
+                                <img ng-if='EC.userNeeds.nature' src="png/nature2.png"></img>
+                                <br> Nature
+                            </md-button>
+                            <md-button ng-click='EC.filter("movies")'>
+                                <img ng-if='!EC.userNeeds.movies' src="png/movies.png"></img>
+                                <img ng-if='EC.userNeeds.movies' src="png/movies2.png"></img>
+                                <br> Movies
+                            </md-button>
+                            <md-button ng-click='EC.filter("shopping")'>
+                                <img ng-if='!EC.userNeeds.shopping' src="png/shopping.png"></img>
+                                <img ng-if='EC.userNeeds.shopping' src="png/shopping2.png"></img>
+                                <br> Shopping
+                            </md-button>
+                            <md-button ng-click='EC.filter("artsAndCrafts")'>
+                                <img ng-if='!EC.userNeeds.artsAndCrafts' src="png/artsAndCrafts.png"></img>
+                                <img ng-if='EC.userNeeds.artsAndCrafts' src="png/artsAndCrafts2.png"></img>
+                                <br> Arts and Crafts</md-button>
+                            <md-button ng-click='EC.filter("danceAndMusic")'>
+                                <img ng-if='!EC.userNeeds.danceAndMusic' src="png/danceAndMusic.png"></img>
+                                <img ng-if='EC.userNeeds.danceAndMusic' src="png/danceAndMusic2.png"></img>
+                                <br> Dance and Music</md-button>
+                            <md-button ng-click='EC.filter("partyAndHoliday")'>
+                                <img ng-if='!EC.userNeeds.partyAndHoliday' src="png/partyAndHoliday.png"></img>
+                                <img ng-if='EC.userNeeds.partyAndHoliday' src="png/partyAndHoliday2.png"></img>
+                                <br> Party and Holiday
+                            </md-button>
+                        </div>
+                    </md-content>
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    </div>
+
+    <!-- <p>Events Page!</p>
     <section>
-        <div>
+        <div class="filters">
             <h3>Select Accessibility Needs:</h3>
             <br>
             <md-button ng-click='EC.filter("wheelchair")'>
@@ -40,7 +200,7 @@
     <hr>
     <br>
     <section>
-        <div>
+        <div class="filters">
             <h3>Select Activity:</h3>
             <br>
             <md-button ng-click='EC.filter("games")'>
@@ -92,12 +252,12 @@
                 <br> Party and Holiday
             </md-button>
         </div>
-    </section>
+    </section> -->
 
     <hr>
-    
-    <section>
-        <div class='container' layout='row' flex>
+
+    <!-- <section>
+        <div class='container' id="sidenav" layout='row' flex>
             <md-sidenav md-is-locked-open="true" class='md-whiteframe-10dp'>
                 <md-list>
                     <md-list-item>
@@ -106,7 +266,7 @@
                     <hr>
                     <md-list-item ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" ' ng-hide='!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory || EC.userContent.displayAll || !eachEvent.content_tags.games && EC.userNeeds.games || !eachEvent.content_tags.animals && EC.userNeeds.animals || !eachEvent.content_tags.food && EC.userNeeds.food || !eachEvent.content_tags.sports && EC.userNeeds.sports || !eachEvent.content_tags.nature && EC.userNeeds.nature || !eachEvent.content_tags.movies && EC.userNeeds.movies || !eachEvent.content_tags.shopping && EC.userNeeds.shopping || !eachEvent.content_tags.artsAndCrafts && EC.userNeeds.artsAndCrafts || !eachEvent.content_tags.danceAndMusic && EC.userNeeds.danceAndMusic || !eachEvent.content_tags.partyAndHoliday && EC.userNeeds.partyAndHoliday'>
                         <md-button aria-label='{{ eachEvent.name }}' ng-click='EC.contentDisplay(eachEvent)'>
-                            <!-- loop through content tags, display if value = true -->
+                            
                             <img ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
                             <span> {{ eachEvent.time_start | date: "longDate"}}
                                 <br>{{ eachEvent.name }}
@@ -117,7 +277,7 @@
                 </md-list>
             </md-sidenav>
 
-            <!-- event content -->
+            
 
             <md-content ng-if='EC.eventContent' id="content" flex>
                 <div id="eventContent">
@@ -153,7 +313,7 @@
             </md-content>
 
         </div>
-    </section>
+    </section> -->
     <hr>
 </div>
 
