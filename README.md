@@ -53,7 +53,7 @@ Styling:
 - [x] Finish basic styling for all pages.
 - [x] Responsive adjustment using container.
 - [ ] ng-aria, label.
-- [ ] Change heart icon in events page to solid white/solid black (downloaded), so viewer associates white = can click on, blue = background.
+- [x] Change heart icon in events page to solid white/solid black.
 
 Additional functionality:
 - [ ] Add suite alert when event created. (or dialog)

@@ -25,7 +25,7 @@ myApp.controller('CreateController', function (UserService) {
   };
 
   vm.states = ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'];
-  vm.content = [ {text: 'Games', tagIn: 'games'}, {text: 'Animals', tagIn: 'animals'}, {text: 'Food', tagIn: 'food'}, {text: 'Sports', tagIn: 'sports'}, {text: 'Nature', tagIn: 'nature'}, {text: 'Movies', tagIn: 'movies'}, {text: 'Shopping', tagIn: 'shopping'}, {text: 'Arts and Crafts', tagIn: 'artsAndCrafts'}, {text: 'Dance and Music', tagIn: 'danceAndMusic'}, {text: 'Party and Holiday', tagIn: 'partyAndHoliday'}];
+  vm.content = [{ text: 'Games', tagIn: 'games' }, { text: 'Animals', tagIn: 'animals' }, { text: 'Food', tagIn: 'food' }, { text: 'Sports', tagIn: 'sports' }, { text: 'Nature', tagIn: 'nature' }, { text: 'Movies', tagIn: 'movies' }, { text: 'Shopping', tagIn: 'shopping' }, { text: 'Arts and Crafts', tagIn: 'artsAndCrafts' }, { text: 'Dance and Music', tagIn: 'danceAndMusic' }, { text: 'Party and Holiday', tagIn: 'partyAndHoliday' }];
 
   vm.grabEvent = function () {
     var tag = vm.contentTagsInValue;
@@ -48,6 +48,14 @@ myApp.controller('CreateController', function (UserService) {
       access_tags: vm.accessTagsIn,
       content_tags: vm.contentTagsIn
     };
+    // alert user if value is not entered
+    var inputsList = [vm.nameIn, vm.descriptionIn, vm.locNameIn, vm.streetIn, vm.cityIn, vm.stateIn, vm.zipIn, vm.timeStartIn, vm.timeEndIn];
+    for (var i = 0; i < inputsList.length; i++) {
+      if (inputsList[i] === undefined) {
+        alert('Enter all values please.');
+        return;
+      }
+    }
     console.log('vm.eventObj: ', vm.eventObj);
     UserService.createEvent(vm.eventObj);
   }
