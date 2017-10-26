@@ -52,13 +52,13 @@ Styling:
 - [x] Added logo and title navbar.
 - [x] Finish basic styling for all pages.
 - [x] Responsive adjustment using container.
-- [ ] ng-aria, label.
+- [x] ng-aria, label.
 - [x] Change heart icon in events page to solid white/solid black.
 
 Additional functionality:
 - [ ] Add suite alert when event created. (or dialog)
 - [ ] Do not allow user to submit create page without completing all fields.
-- [ ] Redirect user to different page when submitting event.
+- [x] Redirect user to different page when submitting event.
 - [ ] Filter expired events using date function (create current time variable on controller to compare against events).
 
 Weekend:

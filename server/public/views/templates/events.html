@@ -9,12 +9,12 @@
                             <md-sidenav md-is-locked-open="true" class='md-whiteframe-10dp'>
                                 <div id="sidenav">
                                     <md-list>
-                                        <md-list-item>
-                                            <h2>Current Events:</h2>
+                                        <md-list-item tabindex="0">
+                                            <h2>Upcoming Events:</h2>
                                         </md-list-item>
                                         <hr>
                                         <md-list-item ng-repeat='eachEvent in EC.eventsObj.data | orderBy: "time_start" ' ng-hide='{{ EC.filterConditions }}'>
-                                            <md-button aria-label='{{ eachEvent.name }}' ng-click='EC.contentDisplay(eachEvent)'>
+                                            <md-button aria-label='{{ eachEvent.name }}, {{ eachEvent.time_start | date: "longDate" }}' ng-click='EC.contentDisplay(eachEvent)'>
                                                 <!-- loop through content tags, display if value = true -->
                                                 <img ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
                                                 <span> {{ eachEvent.time_start | date: "longDate"}}
@@ -27,34 +27,35 @@
                                     </md-list>
                                 </div>
                             </md-sidenav>
+                            <!-- content -->
                             <md-content ng-if='EC.eventContent' class='lightblue' flex>
                                 <div id="eventContent">
-                                    <img ng-repeat='(tag, value) in EC.eventContent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
-                                    <img height='30em' class="contentAccessIcons" ng-repeat='(tag, value) in EC.eventContent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
-                                    <h3>{{ EC.eventContent.name }}</h3>
-                                    <p>
+                                    <img aria-label="{{ tag }}" tabindex="0" ng-repeat='(tag, value) in EC.eventContent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+                                    <img aria-label="{{ tag }}" tabindex="0" height='30em' class="contentAccessIcons" ng-repeat='(tag, value) in EC.eventContent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+                                    <h3 tabindex="0">{{ EC.eventContent.name }}</h3>
+                                    <p tabindex="0">
                                         {{ EC.eventContent.description }}
                                     </p>
-                                    <p>
+                                    <p tabindex="0">
                                         {{ EC.eventContent.time_start | date: "longDate"}}
                                     </p>
-                                    <p>
-                                        {{ EC.eventContent.time_start | date: "h:mm"}} - {{ EC.eventContent.time_end | date: "shortTime"}}
+                                    <p tabindex="0">
+                                        {{ EC.eventContent.time_start | date: "h:mm"}} to {{ EC.eventContent.time_end | date: "shortTime"}}
                                     </p>
                                     <div>Attend:
-                                        <md-button ng-if='!EC.eventContent.attending' ng-click='EC.addAttend(EC.eventContent._id)'>
+                                        <md-button aria-label="Attend, button" ng-if='!EC.eventContent.attending' ng-click='EC.addAttend(EC.eventContent._id)'>
                                             <md-icon md-svg-src="svg/heart_white.svg"></md-icon>
                                         </md-button>
-                                        <md-button ng-if='EC.eventContent.attending' ng-click='EC.removeAttend(EC.eventContent._id)'>
+                                        <md-button aria-label="Cancel attend, button" ng-if='EC.eventContent.attending' ng-click='EC.removeAttend(EC.eventContent._id)'>
                                             <md-icon md-svg-src="svg/heart.svg"></md-icon>
                                         </md-button>
-                                        <span>People Attending: {{ EC.eventContent.count }}</span>
+                                        <span tabindex="0">People Attending: {{ EC.eventContent.count }}</span>
                                     </div>
-                                    <ul> Happening At:
-                                        <li>
+                                    <ul tabindex="0"> Happening At:
+                                        <li tabindex="0">
                                             {{ EC.eventContent.location.name }}
                                         </li>
-                                        <li>
+                                        <li tabindex="0">
                                             {{ EC.eventContent.location.street }}, {{ EC.eventContent.location.city }}, {{ EC.eventContent.location.state }} {{ EC.eventContent.location.zip
                                             }}
                                         </li>
@@ -67,7 +68,7 @@
                 <!-- accessibility tab -->
                 <md-tab label="Accessiblity">
                     <md-content class="md-padding lightblue">
-                        <h2 class="tabDisplay">Select All Accessibility Needs</h2>
+                        <h2 tabindex="0" class="tabDisplay">Select All Accessibility Needs</h2>
                         <p>Click on all accessibilities needed.</p>
                         <div class='md-whiteframe-10dp filterIcons'>
                             <md-button ng-click='EC.filter("wheelchair")'>
@@ -106,7 +107,7 @@
                 <!-- Activity filter tab -->
                 <md-tab label="Activity">
                     <md-content class="md-padding lightblue">
-                        <h2 class="tabDisplay">Select an Activity Type</h2>
+                        <h2 tabindex="0" class="tabDisplay">Select an Activity Type</h2>
                         <p>Click on an icon to see all those activities.</p>
                         <div class='md-whiteframe-10dp filterIcons'>
                             <md-button ng-click='EC.filter("games")'>

@@ -1,5 +1,5 @@
 <div class="container lightblue">
-  <h2>Enter details to add an event</h2>
+  <h2 tabindex="0">Enter details to add an event</h2>
   <form>
     <!-- inputs -->
     <div class="md-whiteframe-10dp" id="createForm">
@@ -25,7 +25,7 @@
       </md-input-container>
       <md-input-container>
         <label>State</label>
-        <md-select ng-model="CC.stateIn">
+        <md-select ng-model="CC.stateIn" aria-label="State, select">
           <md-option ng-repeat="eachState in CC.states" ng-value="eachState">
             {{eachState}}
           </md-option>
@@ -84,7 +84,7 @@
         Sensory sensitive
       </md-switch>
     </div>
-    <md-button class="md-raised" id="btnWhite" ng-click='CC.grabEvent()'>Create Event</md-button>
+    <md-button class="md-raised" id="btnWhite" ng-click='CC.grabEvent()' aria-label="Create Event, button">Create Event</md-button>
     <!-- put back in -->
     <!-- href="#/user" -->
   </form>
