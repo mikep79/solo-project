@@ -67,7 +67,7 @@
     </div>
     <div layout='row'>
       <md-switch ng-model="CC.accessTagsIn.blind" aria-label="Blind" ng-true-value="true" ng-false-value="false" class="md-warn">
-        Access for the Blind
+        Visual Impairment
       </md-switch>
       <md-switch ng-model="CC.accessTagsIn.bathroom" aria-label="Accessible Bathroom" ng-true-value="true" ng-false-value="false"
         class="md-warn">
@@ -77,16 +77,16 @@
     <div layout='row'>
       <md-switch ng-model="CC.accessTagsIn.attendant" aria-label="Personal Attendant" ng-true-value="true" ng-false-value="false"
         class="md-warn">
-        Attendant on Site
+        Transportation
       </md-switch>
       <md-switch ng-model="CC.accessTagsIn.sensory" aria-label="Sensory sensitive" ng-true-value="true" ng-false-value="false"
         class="md-warn">
         Sensory sensitive
       </md-switch>
     </div>
-    <md-button class="md-raised" id="btnWhite" ng-click='CC.grabEvent()' aria-label="Create Event, button">Create Event</md-button>
+    <md-button class="md-raised" id="btnWhite" href="#/user" ng-click='CC.grabEvent()' aria-label="Create Event, button">Create Event</md-button>
     <!-- put back in -->
-    <!-- href="#/user" -->
+    
   </form>
 
   <!-- <md-select ng-model="CC.contentTagsInValue">

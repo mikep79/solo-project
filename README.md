@@ -65,8 +65,6 @@ Weekend:
 - [ ] About page.
 
 View events/My events:
-- display date/time correctly.
-- sort events chronologically on other pages as well as All Events.
 - filter out expired events.
 - link tables (foreign/reference key) so user can delete their own events.
 
