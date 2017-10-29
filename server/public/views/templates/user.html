@@ -1,13 +1,12 @@
 <!-- <div ng-include="'views/partials/nav.html'"></div> -->
 <div class="container">
-
-    <h1 id="welcome" class="lead" tabindex="0">
-        Welcome, {{uc.userObject.userName}}!
-    </h1>
-    <md-button aria-label="Log out, button" class="md-raised" id="btnWhite" ng-click="uc.userService.logout()">Log Out</md-button>
+    <h2 id="welcome" class="lead" tabindex="0">
+        Welcome - choose an option below.
+        <!-- Welcome, {{uc.userObject.userName}}! -->
+    </h2>
+    <hr>
     <md-button class="md-raised" id="btnWhite" href="#/create">Create Event</md-button>
     <md-button class="md-raised" id="btnWhite" href="#/events">View Events</md-button>
     <md-button class="md-raised" id="btnWhite" href="#/myEvents">My Events</md-button>
-
-
+    <md-button aria-label="Log out, button" class="md-raised" id="btnWhite" ng-click="uc.userService.logout()">Log Out</md-button>
 </div>

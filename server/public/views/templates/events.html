@@ -28,8 +28,12 @@
                                 </div>
                             </md-sidenav>
                             <!-- content -->
-                            <md-content ng-if='EC.eventContent' class='lightblue' flex>
-                                <div id="eventContent">
+                            <md-content  class='lightblue' flex>
+                                <div ng-if='EC.startMessage' id="eventsMessage">
+                                    <h2>Click on an event to view details.</h2>
+                                </div>
+                                <!-- moved ng-if from md-content to below div tag -->
+                                <div id="eventContent" ng-if='EC.eventContent'>
                                     <img aria-label="{{ tag }}" tabindex="0" ng-repeat='(tag, value) in EC.eventContent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
                                     <img aria-label="{{ tag }}" tabindex="0" height='30em' class="contentAccessIcons" ng-repeat='(tag, value) in EC.eventContent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
                                     <h3 tabindex="0">{{ EC.eventContent.name }}</h3>
@@ -69,7 +73,7 @@
                 <md-tab label="Accessiblity">
                     <md-content class="md-padding lightblue">
                         <h2 tabindex="0" class="tabDisplay">Select All Accessibility Needs</h2>
-                        <p>Click on all accessibilities needed.</p>
+                        <p>Click on an icon to show current scheduled activities.</p>
                         <div class='md-whiteframe-10dp filterIcons'>
                             <md-button ng-click='EC.filter("wheelchair")'>
                                 <img ng-if='!EC.userNeeds.wheelchair' src="png/wheelchair.png"></img>
@@ -320,7 +324,6 @@
 
         </div>
     </section> -->
-    <hr>
 </div>
 
 <!-- original display: -->

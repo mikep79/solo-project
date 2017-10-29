@@ -3,6 +3,7 @@ myApp.controller('EventsController', function (UserService) {
     var vm = this;
     vm.UserService = UserService;
     vm.eventsObj = UserService.eventsObject;
+    vm.startMessage = true;
     vm.userNeeds = {
         wheelchair: false,
         deafness: false,
@@ -55,7 +56,9 @@ myApp.controller('EventsController', function (UserService) {
     };
 
     vm.contentDisplay = function(event){
-        console.log('event: ', event);
+        // console.log('event: ', event);
+        // hide starting message
+        vm.startMessage = false;
         vm.eventContent = event;
     };
 

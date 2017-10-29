@@ -54,6 +54,8 @@ Styling:
 - [x] Responsive adjustment using container.
 - [x] ng-aria, label.
 - [x] Change heart icon in events page to solid white/solid black.
+- [x] Logo includes text, lowered size height
+- [x] Changed button hover text color to white.
 
 Additional functionality:
 - [x] Add sweet alert when event created, attendance removed, and user registered.

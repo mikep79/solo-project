@@ -15,11 +15,6 @@ main {
   font-weight: 600;
 }
 
-#title {
-  font-size: 32px;
-  font-weight: 600;
-}
-
 .nav {
   /* background-color: #333333; */
   background-color: #bb7f4d;
@@ -31,12 +26,14 @@ main {
 }
 
 #logo {
-  height: 140px; 
+  height: 140px;
+  margin-top: 5px;
 }
 
 /* div containing sidenav */
 #sidenav {
   min-width: 200px;
+  height: 500px;
 }
 
 /* text box within md-content */
@@ -44,6 +41,11 @@ main {
   margin: 20px;
   min-width: 350px;
   max-width: 500px;
+}
+
+#eventsMessage {
+  margin: 20px;
+  margin-top: 30px;
 }
 
 /* divs containing filter icons */
@@ -88,11 +90,20 @@ md-select {
 
 #btnWhite:hover {
   background-color: rgb(155, 78, 47);
+  color: white;
 }
 
 .contentAccessIcons {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+#myEventsDiv {
+  margin: 20px;
+}
+
+#myEventsMessage {
+  margin-top: 40px;
 }
 
 /* body, html {

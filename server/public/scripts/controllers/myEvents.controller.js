@@ -2,6 +2,7 @@ myApp.controller('MyEventsController', function (UserService) {
     // console.log('MyEventsController loaded');
     var vm = this;
     vm.UserService = UserService;
+    vm.userObject = UserService.userObject;
     vm.myAttendingEvents = UserService.myAttendingEvents;
     // vm.myEvents = UserService.myEventsObject;
     // what's this for?? :

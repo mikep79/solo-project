@@ -5,32 +5,40 @@
         <md-button ng-click='MEC.removeAttend(eachEvent._id)'>Not attending</md-button>
     </p>
 </div> -->
-
-<div class="lightblue" id="eventContent" ng-repeat='eachEvent in MEC.myAttendingEvents.data | orderBy: "time_start" '>
-    <img tabindex="0" aria-label="{{ tag }}" ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
-    <img tabindex="0" aria-label="{{ tag }}" class="contentAccessIcons" height='30em' ng-repeat='(tag, value) in eachEvent.access_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
-    <h3 tabindex="0">{{ eachEvent.name }}</h3>
-    <p tabindex="0">
-        {{ eachEvent.description }}
-    </p>
-    <p tabindex="0">
-        {{ eachEvent.time_start | date: "longDate"}}
-    </p>
-    <p tabindex="0">
-        {{ eachEvent.time_start | date: "h:mm"}} - {{ eachEvent.time_end | date: "shortTime"}}
-    </p>
-    <md-button tabindex="0" aria-label="Cancel Attending, button" class="md-raised" id="btnWhite" ng-click='MEC.removeAttend(eachEvent._id)'>Cancel Attendance</md-button>
-    <span tabindex="0">People Attending: {{ eachEvent.count }}</span>
-    <ul tabindex="0"> Happening At:
-        <li tabindex="0">
-            {{ eachEvent.location.name }}
-        </li>
-        <li tabindex="0">
-            {{ eachEvent.location.street }}, {{ eachEvent.location.city }}, {{ eachEvent.location.state }} {{ eachEvent.location.zip
-            }}
-        </li>
-    </ul>
+<div id="myEventsDiv">
+    <div id='myEventsMessage'>
+        <h2>
+            Events {{MEC.userObject.userName}} is attending.
+        </h2>
+    </div>
     <hr>
+    <div class="lightblue" id="eventContent" ng-repeat='eachEvent in MEC.myAttendingEvents.data | orderBy: "time_start" '>
+        <img tabindex="0" aria-label="{{ tag }}" ng-repeat='(tag, value) in eachEvent.content_tags' ng-if='value' src='png/{{ tag }}2.png'></img>
+        <img tabindex="0" aria-label="{{ tag }}" class="contentAccessIcons" height='30em' ng-repeat='(tag, value) in eachEvent.access_tags'
+            ng-if='value' src='png/{{ tag }}2.png'></img>
+        <h3 tabindex="0">{{ eachEvent.name }}</h3>
+        <p tabindex="0">
+            {{ eachEvent.description }}
+        </p>
+        <p tabindex="0">
+            {{ eachEvent.time_start | date: "longDate"}}
+        </p>
+        <p tabindex="0">
+            {{ eachEvent.time_start | date: "h:mm"}} - {{ eachEvent.time_end | date: "shortTime"}}
+        </p>
+        <md-button tabindex="0" aria-label="Cancel Attending, button" class="md-raised" id="btnWhite" ng-click='MEC.removeAttend(eachEvent._id)'>Cancel Attendance</md-button>
+        <span tabindex="0">People Attending: {{ eachEvent.count }}</span>
+        <ul tabindex="0"> Happening At:
+            <li tabindex="0">
+                {{ eachEvent.location.name }}
+            </li>
+            <li tabindex="0">
+                {{ eachEvent.location.street }}, {{ eachEvent.location.city }}, {{ eachEvent.location.state }} {{ eachEvent.location.zip
+                }}
+            </li>
+        </ul>
+        <hr>
+    </div>
 </div>
 
 <!-- original display -->
