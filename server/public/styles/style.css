@@ -66,6 +66,9 @@ md-select {
   padding-bottom: 24px;
 }
 
+.switchesDiv {
+  max-width: 700px;
+}
 
 .tabDisplay {
   font-size: 25px;

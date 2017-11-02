@@ -54,7 +54,7 @@ Styling:
 - [x] Responsive adjustment using container.
 - [x] ng-aria, label.
 - [x] Change heart icon in events page to solid white/solid black.
-- [x] Logo includes text, lowered size height
+- [x] Logo includes text, lowered size height.
 - [x] Changed button hover text color to white.
 
 Additional functionality:
@@ -80,7 +80,6 @@ View Events page:
     This line causes can't find .png error for unknown reason. Try creating function in controller that builds src string.
 - when user click attend button twice, adds duplicate item to array (solution: make Unique part of attend array schema?)
 - If user selects multiple content_tags, will only show events that have BOTH those tags (ie. no events.)
-- Set minimum height of event pages/sidebar so clicking tags doesn't re-adjust view.
 - If no events listed after filters, show "sorry, no events matching selection" message.
 Create Event page:
 - If user inputs field, then deletes it, event will still be created without alert.
