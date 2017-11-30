@@ -8,10 +8,10 @@ Jump is a full-stack JavaScript-based app designed to facilitate event planning 
 <img src="screenshots/create_event.png" height="300">
 </p>
 <p>
-<img src="public/screenshots/filter_events.png" height="300">
+<img src="screenshots/filter_events.png" height="300">
 </p>
 <p>
-<img src="public/screenshots/find_events.png" height="300">
+<img src="screenshots/find_events.png" height="300">
 </p>
 
 ## Built With
