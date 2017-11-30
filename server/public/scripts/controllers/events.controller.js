@@ -23,6 +23,8 @@ myApp.controller('EventsController', function (UserService) {
         partyAndHoliday: false
     };
 
+    var currentTime = new Date().getTime();
+
     vm.filterConditions = '!eachEvent.access_tags.wheelchair && EC.userNeeds.wheelchair || !eachEvent.access_tags.deafness && EC.userNeeds.deafness || !eachEvent.access_tags.blind && EC.userNeeds.blind || !eachEvent.access_tags.bathroom && EC.userNeeds.bathroom || !eachEvent.access_tags.attendant && EC.userNeeds.attendant || !eachEvent.access_tags.sensory && EC.userNeeds.sensory || EC.userContent.displayAll || !eachEvent.content_tags.games && EC.userNeeds.games || !eachEvent.content_tags.animals && EC.userNeeds.animals || !eachEvent.content_tags.food && EC.userNeeds.food || !eachEvent.content_tags.sports && EC.userNeeds.sports || !eachEvent.content_tags.nature && EC.userNeeds.nature || !eachEvent.content_tags.movies && EC.userNeeds.movies || !eachEvent.content_tags.shopping && EC.userNeeds.shopping || !eachEvent.content_tags.artsAndCrafts && EC.userNeeds.artsAndCrafts || !eachEvent.content_tags.danceAndMusic && EC.userNeeds.danceAndMusic || !eachEvent.content_tags.partyAndHoliday && EC.userNeeds.partyAndHoliday';
 
     vm.addAttend = function (eventId) {
@@ -45,6 +47,8 @@ myApp.controller('EventsController', function (UserService) {
     };
 
     vm.getEvents = function () {
+        currentTime = new Date().getTime();
+        console.log('currentDate: ', currentTime);
         UserService.getEvents();
         console.log(vm.eventsObj);
     };
@@ -60,6 +64,9 @@ myApp.controller('EventsController', function (UserService) {
         // hide starting message
         vm.startMessage = false;
         vm.eventContent = event;
+        var dateTest = new Date(event.time_start).getTime();
+        console.log('Event time:', dateTest );
+        
     };
 
 });
