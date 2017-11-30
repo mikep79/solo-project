@@ -5,7 +5,7 @@ https://solo-project-mp.herokuapp.com/
 Jump is a full-stack JavaScript-based app designed to facilitate event planning and sharing by caregivers for people with special needs. The app allows a user to register and sign in, create events tagged with accessibility and content needs, and share with other users of the app. Users can register for an event and manage attendance in the My Events page. Users who do not create an account will still be able to view the events, and will be able to filter available events by content type and/or accessibility needs. As an example, a user with deafness may click on tags for deafness and movies to find events such as movie showings at theatres with closed captioning or an interpreter.
 
 <p>
-<img src="create_event.png" height="300">
+<img src="screenshots/create_event.png" height="300">
 </p>
 <p>
 <img src="public/screenshots/filter_events.png" height="300">
