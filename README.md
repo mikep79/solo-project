@@ -1,3 +1,45 @@
+# JUMP
+
+https://solo-project-mp.herokuapp.com/
+
+Jump is a full-stack JavaScript-based app designed to facilitate event planning and sharing by caregivers for people with special needs. The app allows a user to register and sign in, create events tagged with accessibility and content needs, and share with other users of the app. Users can register for an event and manage attendance in the My Events page. Users who do not create an account will still be able to view the events, and will be able to filter available events by content type and/or accessibility needs. As an example, a user with deafness may click on tags for deafness and movies to find events such as movie showings at theatres with closed captioning or an interpreter.
+
+<p>
+<img src="screenshots/create_event.png" height="300">
+</p>
+<p>
+<img src="screenshots/filter_events.png" height="300">
+</p>
+<p>
+<img src="screenshots/find_events.png" height="300">
+</p>
+
+## Built With
+
+MEAN stack, Mongo Database, Express, Angular.js, Node.js.
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/)
+
+### Installing
+
+Run ```npm install``` in terminal.
+
+## Documentation
+
+Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
+
+## Author
+
+* Mike Pettman
+
+## Acknowledgments
+
+* Scott Bromander and Kris Szafranski for base passport code.
+
+## Feature schedule
+
 ### Features
 - [X] Clean up username and login controllers.
 - [X] Make View Events page and connect with controller and service.
@@ -72,7 +114,7 @@ View events/My events:
 
 
 
-#errors:
+###Errors:
 My Events page: 
 - When creating event, allows duplicate events to be created. When deleting, will delete both events.
 View Events page:
@@ -84,7 +126,7 @@ View Events page:
 Create Event page:
 - If user inputs field, then deletes it, event will still be created without alert.
 
-#Notes
+###Notes
 - filter results to weeelchair = true. (first part returns users with a wheelchair value = true anywhere; second part only shows events with wheelchair = true):
 db.users.find( { "events.access_tags.wheelchair": true}, {events: {$elemMatch:  { access_tags: {"wheelchair": true, "deafness": false } } } } );
 - find two values, remove id's, but will still return some empty users... :
@@ -160,33 +202,3 @@ Solo presentation.
 # add to readme:
 ## Screen Shot (of app)
 ## Deployment (notes on how to deploy)
-
-# Accessible Activities
-
---> Link to Heroku deployment <--
-
-Accessible Activities is a full-stack web application which will increase activity options for persons with special needs, and facilitate activity planning for caregivers. The app will allow users to create and view events with accessibility designations. Users who do not create an account will still be able to view the events, and will be able to filter available events by content type and/or accessibility needs. As an example, a user with deafness may click on tags for deafness and movies to find events such as movie showings at theatres with closed captioning or an interpreter. Another user may select the wheelchair-accessible and animals tags to find an event like a visit to a dog park with paved sidewalks. The Accessible Activities app has two goals: to make it easier for people to find social events friendly to their accessibility needs, and to help caregivers connect with other caregivers to increase the number of these activities.
-
-## Built With
-
-MEAN stack, Mongo Database, Express, Angular.js, Node.js.
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/en/)
-
-### Installing
-
-Run ```npm install``` in terminal.
-
-## Documentation
-
-Link to a read-only version of your scope document or other relevant documentation here (optional). Remove if unused.
-
-## Author
-
-* Mike Pettman
-
-## Acknowledgments
-
-* Scott Bromander and Kris Szafranski for base passport code.
