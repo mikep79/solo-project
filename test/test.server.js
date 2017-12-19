@@ -10,24 +10,24 @@ var EventsTest = require("../server/models/events");
 chai.use(chaiHttp);
 
 describe('Events', function () {
-    EventsTest.collection.drop();
+    // EventsTest.collection.drop();
     beforeEach(function (done) {
         var newEvent = new EventsTest({
-            'name': 'String',
-            'description': 'String',
-            'count': 'Number',
-            'time_start': null,
-            'time_end': 'null',
-            'location': { 'name': 'String', 'street': 'String', 'city': 'String', 'state': 'String', 'zip': 55555 },
-            'access_tags': { 'wheelchair': false, 'deafness': false, 'blind': false, 'bathroom': false, 'attendant': false, 'sensory': false },
-            'content_tags': { 'games': false, 'animals': false, 'food': false, 'sports': false, 'nature': false, 'movies': false, 'shopping': false, 'artsAndCrafts': false, 'danceAndMusic': false, 'partyAndHoliday': false }
+            name: 'String',
+            description: 'String',
+            count: '0',
+            time_start: null,
+            time_end: 'null',
+            location: { name: 'String', street: 'String', city: 'String', state: 'String', zip: '55555' },
+            access_tags: { wheelchair: false, deafness: false, blind: false, bathroom: false, attendant: false, sensory: false },
+            content_tags: { games: false, animals: false, food: false, sports: false, nature: false, movies: false, shopping: false, artsAndCrafts: false, danceAndMusic: false, partyAndHoliday: false }
         });
         newEvent.save(function (err) {
             done();
         });
     });
     afterEach(function (done) {
-        EventsTest.collection.drop();
+        // EventsTest.collection.drop();
         done();
     });
     it('should list all events in /events GET call', function (done) {
@@ -43,14 +43,16 @@ describe('Events', function () {
         chai.request(server)
             .post('/create')
             .send({
-                'name': 'String',
-                'description': 'String',
-                'count': '1',
-                'time_start': null,
-                'time_end': null,
-                'location': { 'name': 'String', 'street': 'String', 'city': 'String', 'state': 'MN', 'zip': '55555' },
-                'access_tags': { 'wheelchair': false, 'deafness': false, 'blind': false, 'bathroom': false, 'attendant': false, 'sensory': false },
-                'content_tags': { 'games': false, 'animals': false, 'food': false, 'sports': false, 'nature': false, 'movies': false, 'shopping': false, 'artsAndCrafts': false, 'danceAndMusic': false, 'partyAndHoliday': false }
+                event: {
+                name: 'String',
+                description: 'String',
+                count: 0,
+                time_start: '2017-03-02T08:00:00.000Z',
+                time_end: '2018-05-01T19:00:00.000Z',
+                location: { name: 'String', street: 'String', city: 'String', state: 'MN', zip: 55555 },
+                access_tags: { wheelchair: false, deafness: false, blind: false, bathroom: false, attendant: false, sensory: false },
+                content_tags: { games: false, animals: false, food: false, sports: false, nature: false, movies: false, shopping: false, artsAndCrafts: false, danceAndMusic: false, partyAndHoliday: false }
+                }
             })
             .end(function (err, res) {
                 console.log('POST test res.body: ', res.body);

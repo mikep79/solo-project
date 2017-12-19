@@ -5,6 +5,7 @@ var dbEvents = require('../models/events.js');
 
 router.post('/', function(req, res){
     console.log('Create route hit with req username: ', req.user.username);
+    console.log('Create route hit with req.body.events: ', req.body.events);
     var eventObj = req.body.events;
     var newEvent = new dbEvents(
         eventObj
