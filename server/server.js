@@ -7,6 +7,17 @@ var sessionConfig = require('./modules/session.config');
 
 //DB Module
 var db = require('./modules/db.config.js');
+var mongoose = require('mongoose');
+
+// config for test DB
+var config = require('./_config');
+mongoose.connect(config.mongoURI[app.settings.env], function(err, res) {
+  if(err) {
+    console.log('Error connecting to the database. ' + err);
+  } else {
+    console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
+  }
+});
 
 // Route includes
 var indexRouter = require('./routes/index.router');
@@ -43,6 +54,9 @@ app.use('/myEvents', myEventsRouter);
 app.use('/', indexRouter);
 
 // Listen //
-app.listen(port, function(){
+// export app.listen object to test.server.js
+var server = app.listen(port, function(){
    console.log('Listening on port:', port);
 });
+
+module.exports = server;
