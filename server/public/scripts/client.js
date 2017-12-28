@@ -40,8 +40,8 @@ myApp.config(function($routeProvider, $locationProvider) {
       controller: 'MyEventsController as MEC'
     })
     .otherwise({
-      redirectTo: 'home'
-    });
+      redirectTo: '/home'
+    })
     // use the HTML5 History API
-    $locationProvider.html5Mode(true);
+    // $locationProvider.html5Mode(true);
 });

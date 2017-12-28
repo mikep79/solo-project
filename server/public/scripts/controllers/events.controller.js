@@ -1,5 +1,5 @@
 myApp.controller('EventsController', function (UserService) {
-    // console.log('EventsController loaded');
+    console.log('EventsController loaded');
     var vm = this;
     vm.UserService = UserService;
     vm.eventsObj = UserService.eventsObject;

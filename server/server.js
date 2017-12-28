@@ -25,6 +25,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 // Serve back static files
 app.use(express.static('./server/public'));
 
+// app.use(function(req, res) {
+//     res.sendFile(__dirname + '/public/views/index.html');
+// });
+
 // Passport Session Configuration
 app.use(sessionConfig);
 
