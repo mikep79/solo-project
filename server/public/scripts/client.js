@@ -42,4 +42,6 @@ myApp.config(function($routeProvider, $locationProvider) {
     .otherwise({
       redirectTo: 'home'
     });
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
 });
