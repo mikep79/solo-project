@@ -54,6 +54,12 @@ main {
   max-width: 750px;
 }
 
+/* HOME PAGE */
+.inputBox {
+  width: 270px;
+  margin: 5px 0px 5px 0px;
+}
+
 /* CREATE EVENTS PAGE */
 
 #createForm {
